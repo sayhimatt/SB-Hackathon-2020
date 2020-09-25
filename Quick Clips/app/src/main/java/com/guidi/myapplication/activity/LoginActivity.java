@@ -17,7 +17,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void loginGoogle(View v) {
-        
+
     }
 
     public void signup(View v) {
