@@ -36,11 +36,11 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void loginGoogle(View v) {
+    public void loginWithGoogle(View v) {
 
     }
 
-    public void signup(View v) {
+    public void sign_up(View v) {
         Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
     }
