@@ -69,6 +69,7 @@
             android:id="@+id/bt_login_google"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="loginGoogle"
             android:text="@string/login_google" />
     </LinearLayout>
 
