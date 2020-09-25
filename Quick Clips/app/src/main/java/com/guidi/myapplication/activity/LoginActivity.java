@@ -17,7 +17,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        boolean matt = false;
+        boolean matt = true;
         if(matt) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
