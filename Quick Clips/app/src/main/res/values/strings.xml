@@ -6,6 +6,6 @@
 
     <string name="username">Username</string>
     <string name="password">Password</string>
-    <stirng name="login_google">Login With Google</stirng>
+    <string name="login_google">Login With Google</string>
     <string name="sign_up">Sign up!</string>
 </resources>
