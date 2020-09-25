@@ -1,22 +1,17 @@
 package com.guidi.myapplication.activity;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.guidi.myapplication.R;
-
-import static androidx.core.content.ContextCompat.getSystemService;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -35,7 +30,6 @@ public class LoginActivity extends AppCompatActivity {
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
             NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
             NavigationUI.setupWithNavController(navView, navController);
-
         }else {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_login);
