@@ -51,6 +51,7 @@ public class HomeFragment extends Fragment {
 //            mValues.add(a);
 
             // AS.
+//            retrievePlannerItems();
             clipList = (RecyclerView) view.findViewById(R.id.clip_list);
             MainActivity.setClipRecyclerView(clipList);
             clipList.setLayoutManager(new LinearLayoutManager(context));
@@ -78,7 +79,7 @@ public class HomeFragment extends Fragment {
      *  Adds a plan to the database and list and finally updating the recycler view to visibly show the change
      * @param pi
      */
-    public void addPlanToList(ClipItems.ClipItem pi) {
+    public void addClipToList(ClipItems.ClipItem pi) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID).child("PlannerItems");
         String id = ref.push().getKey();
         pi.setId(id);
@@ -87,7 +88,7 @@ public class HomeFragment extends Fragment {
         clipList.getAdapter().notifyDataSetChanged();
     }
 
-    private void retrievePlannerItems() {
+    private void retrieveClipItems() {
         currentUserID = mAuth.getCurrentUser().getUid();
         mAuth = FirebaseAuth.getInstance();
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
