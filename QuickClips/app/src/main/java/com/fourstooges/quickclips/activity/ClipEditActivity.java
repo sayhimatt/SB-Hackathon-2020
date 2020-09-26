@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.fourstooges.quickclips.MainActivity;
 import com.fourstooges.quickclips.R;
 import com.fourstooges.quickclips.database.ClipItems;
 import com.google.android.gms.tasks.Task;
@@ -52,6 +53,7 @@ public class ClipEditActivity extends AppCompatActivity {
         ref = ref.child("Users").child(mAuth.getCurrentUser().getUid()).child("quickclips");
         Task<Void> task = ref.child(clipItem.getId()).setValue(clipItem);
         Toast.makeText(this, "Saved!", Toast.LENGTH_SHORT).show();
+//        MainActivity.getClipRecyclerView().getAdapter().notifyDataSetChanged();
         finish();
     }
 }
