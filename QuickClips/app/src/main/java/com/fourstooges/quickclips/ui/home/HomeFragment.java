@@ -85,7 +85,6 @@ public class HomeFragment extends Fragment {
         ref.child(id).setValue(pi);
         ClipItems.addItem(pi);
         clipList.getAdapter().notifyDataSetChanged();
-
     }
 
     private void retrievePlannerItems() {
