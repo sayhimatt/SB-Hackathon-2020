@@ -51,8 +51,15 @@ public class LoginActivity extends AppCompatActivity {
         gsoClient = GoogleSignIn.getClient(this, gso);
     }
 
+
+
     public void sign_up(View v) {
         Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
+    }
+
+    public void signIn() {
+        Intent intent = gsoClient.getSignInIntent();
+        startActivityForResult(intent,0);
     }
 }
