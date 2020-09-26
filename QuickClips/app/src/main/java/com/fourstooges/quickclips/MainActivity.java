@@ -141,10 +141,11 @@ public class MainActivity extends AppCompatActivity {
         ref.child(id).setValue(c);
     }
 
-//    public static void setClipRecyclerView(RecyclerView rc){
-//        clipRecyclerView = rc;
-//    }
-//    public static RecyclerView getClipRecyclerView(){
-//        return clipRecyclerView;
-//    }
+    public static void setClipRecyclerView(RecyclerView rc){
+        clipRecyclerView = rc;
+    }
+    
+    public static RecyclerView getClipRecyclerView(){
+        return clipRecyclerView;
+    }
 }
