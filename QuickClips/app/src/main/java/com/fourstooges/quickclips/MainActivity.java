@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
          //  AS
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         DatabaseReference clipItems = database.child("Users").child(currentUserID).child("PlannerItems");
-        PlannerContent.addItem(c);
+        ClipItems.addItem(c);
 
     }
 
