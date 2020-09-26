@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.guidi.myapplication.R;
 
@@ -44,6 +45,16 @@ public class SignInActivity extends AppCompatActivity {
                 .build();
         gsoClient = GoogleSignIn.getClient(this, gso);
         mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null){
+            Toast.makeText(SignInActivity.this, "Welcome " + currentUser.getDisplayName() + "!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+            String currentUserID = mAuth.getCurrentUser().getUid();
+            intent.putExtra("userID", currentUserID);
+            setResult(RESULT_OK, intent);
+            startActivity(intent);
+            finish();
+        }
     }
 
     public void sign_in(View v) {
@@ -59,9 +70,10 @@ public class SignInActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(SignInActivity.this, "Welcome!", Toast.LENGTH_LONG).show();
+                        FirebaseUser currentUser = mAuth.getCurrentUser();
+                        Toast.makeText(SignInActivity.this, "Welcome " + currentUser.getDisplayName() + "!", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(SignInActivity.this, MainActivity.class);
-                        String currentUserID = mAuth.getCurrentUser().getUid();
+                        String currentUserID = currentUser.getUid();
                         intent.putExtra("userID", currentUserID);
                         setResult(RESULT_OK, intent);
                         startActivity(intent);
@@ -125,9 +137,10 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(SignInActivity.this, "Welcome!", Toast.LENGTH_SHORT).show();
+                    FirebaseUser currentUser = mAuth.getCurrentUser();
+                    Toast.makeText(SignInActivity.this, "Welcome " + currentUser.getDisplayName() + "!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(SignInActivity.this, MainActivity.class);
-                    String currentUserID = mAuth.getCurrentUser().getUid();
+                    String currentUserID = currentUser.getUid();
                     intent.putExtra("userID", currentUserID);
                     setResult(RESULT_OK, intent);
                     startActivity(intent);
