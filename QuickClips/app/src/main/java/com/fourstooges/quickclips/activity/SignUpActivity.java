@@ -48,7 +48,9 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (TextUtils.equals(s, tfPassword.getText())) {
-                    
+                    btSignUp.setEnabled(true);
+                } else {
+                    btSignUp.setEnabled(false);
                 }
             }
         });
