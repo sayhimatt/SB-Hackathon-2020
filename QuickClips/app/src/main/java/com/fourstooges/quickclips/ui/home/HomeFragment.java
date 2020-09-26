@@ -19,6 +19,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.fourstooges.quickclips.MainActivity;
 import com.fourstooges.quickclips.R;
 import com.fourstooges.quickclips.database.ClipItems;
 
@@ -41,8 +42,10 @@ public class HomeFragment extends Fragment {
             mValues.add(a);
             mValues.add(a);
             clipList = (RecyclerView) view.findViewById(R.id.clip_list);
+            MainActivity.setClipRecyclerView(clipList);
             clipList.setLayoutManager(new LinearLayoutManager(context));
             clipList.setAdapter(new ClipRecyclerViewAdapter(mValues,new HomeFragment(), view.getContext()));
+            clipList.getAdapter().notifyDataSetChanged();
         }
 
         /*final TextView textView = view.findViewById(R.id.test_sayhimatt_tv);
@@ -60,4 +63,8 @@ public class HomeFragment extends Fragment {
         });*/
         return view;
     }
+
+
+
+
 }
