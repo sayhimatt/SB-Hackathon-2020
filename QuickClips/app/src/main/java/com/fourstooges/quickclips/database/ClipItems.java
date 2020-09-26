@@ -20,16 +20,20 @@ public class ClipItems {
         return ITEMS.get(index);
     }
 
-
     public static class ClipItem {
         private String title;
         private String category;
         private String text;
         private String id;
+
         public ClipItem(String title, String category, String text) {
             this.title=title;
             this.category=category;
             this.text=text;
+        }
+
+        public ClipItem() {
+
         }
 
         public String getTitle() {
