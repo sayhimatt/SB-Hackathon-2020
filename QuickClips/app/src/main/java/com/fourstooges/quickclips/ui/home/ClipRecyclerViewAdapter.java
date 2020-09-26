@@ -29,13 +29,11 @@ import java.util.List;
 
 public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerViewAdapter.ViewHolder> {
     private List<ClipItems.ClipItem> mValues;
-    private HomeFragment homeFragment;
     private Context c;
     private FirebaseAuth mAuth;
 
-    public ClipRecyclerViewAdapter(List<ClipItems.ClipItem> items, HomeFragment homeFragment, Context c) {
+    public ClipRecyclerViewAdapter(List<ClipItems.ClipItem> items, Context c) {
         mValues = items;
-        this.homeFragment = homeFragment;
         this.c = c;
         mAuth = FirebaseAuth.getInstance();
     }
