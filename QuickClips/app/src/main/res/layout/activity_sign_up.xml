@@ -109,7 +109,7 @@
             android:layout_weight="1"
             android:enabled="false"
             android:onClick="signUp"
-            android:text="@string/sign_up_with_email" />
+            android:text="@string/sign_up" />
         <!--        android:onClick="sign_up"-->
 
     </LinearLayout>
