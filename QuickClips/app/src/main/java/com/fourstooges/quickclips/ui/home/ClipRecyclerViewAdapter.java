@@ -43,6 +43,9 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
 
+        holder.title_tv.setText(mValues.get(position).getTitle());
+        holder.main_tv.setText(mValues.get(position).getText());
+
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
@@ -56,6 +59,28 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
                 return true;
             }
         });
+
+        holder.copy_b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast t = Toast.makeText(view.getContext(), "Copied!", Toast.LENGTH_SHORT);
+                t.setGravity(Gravity.CENTER,0,0);
+                t.show();
+                String text = "Matt Says Hi!";
+                ClipboardManager clipboard = (ClipboardManager) c.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("", text);
+                clipboard.setPrimaryClip(clip);
+            }
+        });
+
+        holder.copy_b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+
 
     }
 
