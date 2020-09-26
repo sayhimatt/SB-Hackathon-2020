@@ -15,12 +15,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fourstooges.quickclips.R;
 import com.fourstooges.quickclips.activity.ClipEditActivity;
 import com.fourstooges.quickclips.database.ClipItems;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.MutableData;
+import com.google.firebase.database.Transaction;
+import com.google.firebase.database.core.SyncTree;
 
 
 import java.util.List;
@@ -81,7 +89,13 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), "Deleted!", Toast.LENGTH_SHORT).show();
-
+                String clipId = mValues.get(position).getId();
+                String userId = mAuth.getCurrentUser().getUid();
+                DatabaseReference ref = FirebaseDatabase.getInstance()
+                        .getReference().child("Users")
+                        .child(userId).child("quickclips").child(clipId);
+                System.out.println(ref);
+                System.out.println(ref.getKey());
             }
         });
 
