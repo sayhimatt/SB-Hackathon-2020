@@ -34,21 +34,27 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.bottom_nav_menu, menu);
+        inflater.inflate(R.menu.about_menu, menu );
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle item selection
-//        switch (item.getItemId()) {
-//            case R.id.item_contributors:
-////                addSomething();
-//                return true;
-//            case R.id.item_about:
-////                startSettings();
-//                return true;
-//            default:
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.contributors:
+                return true;
+            case R.id.about:
+                return true;
+            case R.id.guidi:
+                return true;
+            case R.id.campos:
+                return true;
+            case R.id.kleister:
+                return true;
+            case R.id.salomon:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
