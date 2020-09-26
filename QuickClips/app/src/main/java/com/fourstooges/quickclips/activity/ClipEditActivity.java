@@ -8,13 +8,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.fourstooges.quickclips.R;
+import com.fourstooges.quickclips.database.ClipItems;
 
 public class ClipEditActivity extends AppCompatActivity {
+    private ClipItems.ClipItem clipItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clip_edit);
+        clipItem = (ClipItems.ClipItem) getIntent().getSerializableExtra("clip_item");
+        System.out.println(clipItem.getId());
     }
 
     @Override
