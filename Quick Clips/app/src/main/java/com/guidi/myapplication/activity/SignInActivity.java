@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -17,15 +18,21 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.guidi.myapplication.R;
 
 public class SignInActivity extends AppCompatActivity {
-    private static final int RC_SIGN_IN = 111;
+    private static final int RC_SIGN_IN = 9001;
     private GoogleSignInClient gsoClient; // Adriana is taking too long
-    private FirebaseAuth auth;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +62,7 @@ public class SignInActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         gsoClient = GoogleSignIn.getClient(this, gso);
-        auth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
     }
 
 
@@ -84,5 +91,31 @@ public class SignInActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+    }
+
+    private void firebaseAuthWithGoogle(String idToken) {
+        // [START_EXCLUDE silent]
+//        showProgressBar();
+        // [END_EXCLUDE]
+        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            FirebaseUser user = mAuth.getCurrentUser();
+//                            updateUI(user);
+                        } else { // Failed to login
+//                            // If sign in fails, display a message to the user.
+//                            Snackbar.make(mBinding.mainLayout, "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
+//                            updateUI(null);
+                        }
+
+                        // [START_EXCLUDE]
+//                        hideProgressBar();
+                        // [END_EXCLUDE]
+                    }
+                });
     }
 }
