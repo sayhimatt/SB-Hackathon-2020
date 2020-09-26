@@ -55,7 +55,10 @@ public class CommFragment extends Fragment {
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
                 
                 Query q1 = FirebaseDatabase.getInstance().getReference().child("quickclips")
-                        .orderByChild("title").equalTo(true).getRef().startAt(key);
+                        .orderByChild("title");
+
+
+
                 q1.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
