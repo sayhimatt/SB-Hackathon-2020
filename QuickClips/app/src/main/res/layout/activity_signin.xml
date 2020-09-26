@@ -28,25 +28,25 @@
         android:text="@string/app_name"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_app" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/bt_login_google"
+        app:layout_constraintBottom_toTopOf="@+id/bt_signup"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_app"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.25">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tf_layout_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:layout_weight="1"
             android:hint="@string/email"
             app:startIconDrawable="@drawable/ic_email">
@@ -66,7 +66,6 @@
             android:id="@+id/tf_layout_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:layout_weight="1"
             android:hint="@string/password"
             app:startIconDrawable="@drawable/ic_lock">
@@ -88,18 +87,16 @@
             android:onClick="sign_in"
             android:text="@string/sign_in" />
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/bt_login_google"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_google_signin_btn_text_dark_normal"
+            android:onClick="signInWithGoogle"
+            android:text="@string/sign_in_google"
+            android:textColor="@android:color/white" />
 
-    <Button
-        android:id="@+id/bt_login_google"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableStart="@drawable/common_google_signin_btn_icon_light"
-        android:onClick="signInWithGoogle"
-        android:text="@string/sign_in_google"
-        app:layout_constraintBottom_toTopOf="@+id/bt_signup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/bt_signup"

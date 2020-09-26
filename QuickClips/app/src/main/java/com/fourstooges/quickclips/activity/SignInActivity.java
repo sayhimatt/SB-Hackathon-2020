@@ -94,28 +94,30 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     public void sign_up(View v) {
-        String email = ((EditText) findViewById(R.id.tf_email)).getText().toString();
-        String password = ((EditText) findViewById(R.id.tf_password)).getText().toString();
-        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-            Toast.makeText(this, "Please Fill In The Empty Fields", Toast.LENGTH_LONG).show();
-        } else {
-            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(SignInActivity.this, "Successfully Registered", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(SignInActivity.this, MainActivity.class);
-                        String currentUserID = mAuth.getCurrentUser().getUid();
-                        intent.putExtra("userID", currentUserID);
-                        setResult(RESULT_OK, intent);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        Toast.makeText(SignInActivity.this, "Registration Failed", Toast.LENGTH_LONG).show();
-                    }
-                }
-            });
-        }
+        startActivity(new Intent(this, SignUpActivity.class));
+//        Use this code Adriana
+//        String email = ((EditText) findViewById(R.id.tf_email)).getText().toString();
+//        String password = ((EditText) findViewById(R.id.tf_password)).getText().toString();
+//        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+//            Toast.makeText(this, "Please Fill In The Empty Fields", Toast.LENGTH_LONG).show();
+//        } else {
+//            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//                @Override
+//                public void onComplete(@NonNull Task<AuthResult> task) {
+//                    if (task.isSuccessful()) {
+//                        Toast.makeText(SignInActivity.this, "Successfully Registered", Toast.LENGTH_LONG).show();
+//                        Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+//                        String currentUserID = mAuth.getCurrentUser().getUid();
+//                        intent.putExtra("userID", currentUserID);
+//                        setResult(RESULT_OK, intent);
+//                        startActivity(intent);
+//                        finish();
+//                    } else {
+//                        Toast.makeText(SignInActivity.this, "Registration Failed", Toast.LENGTH_LONG).show();
+//                    }
+//                }
+//            });
+//        }
     }
 
     public void signInWithGoogle(View v) {
