@@ -1,5 +1,7 @@
 package com.fourstooges.quickclips;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -40,22 +42,26 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+
         switch (item.getItemId()) {
-            case R.id.contributors:
-                return true;
             case R.id.about:
+                // Need to add description of the app here
                 return true;
             case R.id.guidi:
+                intent.setData(Uri.parse("https://github.com/sayhimatt"));
                 return true;
             case R.id.campos:
+                intent.setData(Uri.parse("https://github.com/Camposm97"));
                 return true;
             case R.id.kleister:
+                intent.setData(Uri.parse("https://github.com/kiefuh"));
                 return true;
             case R.id.salomon:
+                intent.setData(Uri.parse("https://github.com/adriana-ss"));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-
 }
