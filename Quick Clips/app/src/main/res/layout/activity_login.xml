@@ -50,7 +50,8 @@
                 android:id="@+id/edit_text_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"
+                android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -62,15 +63,17 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:password="true"
+                android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/bt_login_google"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="loginWithGoogle"
-            android:text="@string/login_google" />
+            android:onClick="signInWithGoogle"
+            android:text="@string/sign_in_google" />
     </LinearLayout>
 
     <Button

@@ -10,14 +10,21 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.guidi.myapplication.R;
 
 public class LoginActivity extends AppCompatActivity {
+    private static final int RC_SIGN_IN = 111;
+    private GoogleSignInClient gsoClient; // Adriana is taking too long
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        boolean matt = true;
+        boolean matt = false;
         if(matt) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
@@ -33,15 +40,28 @@ public class LoginActivity extends AppCompatActivity {
         }else {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_login);
+            createRequest();
         }
     }
 
-    public void loginWithGoogle(View v) {
-
+    public void createRequest() {
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        gsoClient = GoogleSignIn.getClient(this, gso);
+        auth = FirebaseAuth.getInstance();
     }
+
+
 
     public void sign_up(View v) {
         Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
+    }
+
+    public void signInWithGoogle(View v) {
+        Intent intent = gsoClient.getSignInIntent();
+        startActivityForResult(intent,0);
     }
 }
