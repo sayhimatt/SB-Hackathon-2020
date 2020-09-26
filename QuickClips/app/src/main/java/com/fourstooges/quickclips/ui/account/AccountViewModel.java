@@ -13,7 +13,7 @@ public class AccountViewModel extends ViewModel {
 
     public AccountViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Current user: \n" + FirebaseAuth.getInstance().getCurrentUser().getEmail()
+        mText.setValue("User: " + FirebaseAuth.getInstance().getCurrentUser().getEmail()
                         + "\n\nAmount of Clips: "+ ClipItems.ITEMS.size());
 
     }

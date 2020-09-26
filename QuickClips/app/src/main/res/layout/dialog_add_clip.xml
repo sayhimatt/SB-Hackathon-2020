@@ -19,37 +19,24 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tf_layout_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tf_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/rectangle_field"
-                    android:hint="@string/clip_title"
-                    android:padding="10dp"
-                    android:singleLine="true" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tf_layout_text"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tf_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rectangle_field"
+                android:hint="@string/clip_title"
+                android:padding="10dp"
+                android:singleLine="true" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tf_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/rectangle_field"
-                    android:hint="@string/clip_text"
-                    android:inputType="textLongMessage|textMultiLine"
-                    android:padding="10dp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tf_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_field"
+                android:hint="@string/clip_text"
+                android:inputType="textLongMessage|textMultiLine"
+                android:padding="10dp" />
 
             <CheckBox
                 android:id="@+id/check_box_public"
