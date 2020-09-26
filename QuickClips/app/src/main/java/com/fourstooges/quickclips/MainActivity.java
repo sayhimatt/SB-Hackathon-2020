@@ -64,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
                 intent.setData(Uri.parse("https://github.com/adriana-ss"));
                 startActivity(intent);
                 return true;
+            case R.id.sign_out:
+                // sign out
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
