@@ -1,4 +1,0 @@
-include ':app',
-    ':auth:app',
-    ':firebaseoptions:app'
-rootProject.name = "My Application"
