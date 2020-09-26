@@ -51,15 +51,10 @@ public class CommFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 System.out.println("Searching...");
-                String key = tfKey.getText().toString();
+                final String key = tfKey.getText().toString();
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
-                
-                Query q1 = FirebaseDatabase.getInstance().getReference().child("quickclips")
-                        .orderByChild("title");
 
-
-
-                q1.addListenerForSingleValueEvent(new ValueEventListener() {
+                FirebaseDatabase.getInstance().getReference().child("quickclips").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         clipItems.clear();
@@ -67,7 +62,9 @@ public class CommFragment extends Fragment {
                             System.out.println("Found snapshots!");
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                                 ClipItems.ClipItem item = snapshot.getValue(ClipItems.ClipItem.class);
-                                clipItems.add(item);
+                                if (item.getTitle().contains(key) && item.isPublic()) {
+                                    clipItems.add(item);
+                                }
                             }
                             adapter.notifyDataSetChanged();
                         }
