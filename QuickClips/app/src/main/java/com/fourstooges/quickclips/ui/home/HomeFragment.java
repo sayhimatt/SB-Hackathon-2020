@@ -46,7 +46,7 @@ public class HomeFragment extends Fragment {
             clipList.setAdapter(new ClipRecyclerViewAdapter(mValues,new HomeFragment(), view.getContext()));
         }
 
-        final TextView textView = view.findViewById(R.id.test_sayhimatt_tv);
+        /*final TextView textView = view.findViewById(R.id.test_sayhimatt_tv);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,7 +58,7 @@ public class HomeFragment extends Fragment {
                 ClipData clip = ClipData.newPlainText("", text);
                 clipboard.setPrimaryClip(clip);
             }
-        });
+        });*/
         return view;
     }
 }
