@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.fourstooges.quickclips.activity.SignInActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.guidi.myapplication.R;
+import com.fourstooges.quickclips.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;

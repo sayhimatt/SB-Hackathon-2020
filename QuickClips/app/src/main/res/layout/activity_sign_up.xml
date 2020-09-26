@@ -17,6 +17,7 @@
       android:layout_height="100dp"
       android:contentDescription="@string/app_name"
       android:src="@mipmap/ic_launcher"
+      android:layout_marginTop="50dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.498"
       app:layout_constraintStart_toStartOf="parent"
@@ -60,6 +61,7 @@
           android:layout_marginTop="10dp"
           android:inputType="textWebEmailAddress"
           android:singleLine="true"
+          android:background="@drawable/rectangle_field"
           app:layout_constraintTop_toBottomOf="@+id/tv_app" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -76,7 +78,8 @@
         android:id="@+id/edit_text_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
+          android:background="@drawable/rectangle_field"
+          android:inputType="textPassword"
         android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -95,6 +98,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:inputType="textPassword"
+          android:background="@drawable/rectangle_field"
           android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -104,11 +108,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:drawableEnd="@drawable/ic_foreward"
         android:text="sign up" />
     <!--        android:onClick="sign_up"-->
 
   </LinearLayout>
+
+  <Button
+      android:id="@+id/bt_login_google"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:drawableStart="@drawable/common_google_signin_btn_icon_light"
+      android:onClick="signUpWithGoogle"
+      android:text="Sign up with google"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
 
   
   </androidx.constraintlayout.widget.ConstraintLayout>

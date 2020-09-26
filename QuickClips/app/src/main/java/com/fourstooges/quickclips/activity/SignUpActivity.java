@@ -2,7 +2,7 @@ package com.fourstooges.quickclips.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.guidi.myapplication.R;
+import com.fourstooges.quickclips.R;
 
 
 public class SignUpActivity extends AppCompatActivity {
