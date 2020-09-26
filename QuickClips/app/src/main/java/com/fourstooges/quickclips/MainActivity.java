@@ -40,17 +40,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.item_contributors:
-//                addSomething();
-                return true;
-            case R.id.item_about:
-//                startSettings();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+//        // Handle item selection
+//        switch (item.getItemId()) {
+//            case R.id.item_contributors:
+////                addSomething();
+//                return true;
+//            case R.id.item_about:
+////                startSettings();
+//                return true;
+//            default:
+        return super.onOptionsItemSelected(item);
     }
-
 }
