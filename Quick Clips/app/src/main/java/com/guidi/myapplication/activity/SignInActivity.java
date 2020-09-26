@@ -17,7 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.guidi.myapplication.R;
 
-public class LoginActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 111;
     private GoogleSignInClient gsoClient; // Adriana is taking too long
     private FirebaseAuth auth;
@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
             NavigationUI.setupWithNavController(navView, navController);
         }else {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_login);
+            setContentView(R.layout.activity_signin);
             createRequest();
         }
     }
@@ -62,6 +62,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void signInWithGoogle(View v) {
         Intent intent = gsoClient.getSignInIntent();
-        startActivityForResult(intent,0);
+        startActivityForResult(intent,RC_SIGN_IN);
     }
 }
