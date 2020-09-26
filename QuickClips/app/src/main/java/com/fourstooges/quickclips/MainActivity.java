@@ -124,21 +124,20 @@ public class MainActivity extends AppCompatActivity {
     private void addClip(String title, String text, boolean isPublic) {
         System.out.println("Adding clip");
         System.out.println(title + ", " + text + ", " + isPublic);
-        // TODO Your Turn Matt Guidi
-        ClipItems.addItem(new ClipItems.ClipItem(title,"null", text));
-        clipRecyclerView.getAdapter().notifyDataSetChanged();
 
-        ClipItems.ClipItem c= new ClipItems.ClipItem(title,text,null);
+//        ClipItems.addItem(new ClipItems.ClipItem(title,"null", text));
+        ClipItems.ClipItem c= new ClipItems.ClipItem(title, "null", text);
+        ClipItems.addItem(c); // c from line 127
+        clipRecyclerView.getAdapter().notifyDataSetChanged();
 
         mAuth= FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID).child("quickclips");
+        System.out.println("refKey=" + ref.getKey());
         String id= ref.push().getKey();
+        System.out.println("id=" + id);
         c.setId(id);
         ref.child(id).setValue(c);
-
-        ClipItems.addItem(c); // c from line 127
-
     }
 
     public static void setClipRecyclerView(RecyclerView rc){
