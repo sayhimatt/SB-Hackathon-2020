@@ -46,7 +46,6 @@ public class HomeFragment extends Fragment {
             Context context = view.getContext();
 
             // AS.
-            ClipItems.clear();
             System.out.println("Getting Clip Items...");
             retrieveClipItems();
             clipList = view.findViewById(R.id.clip_list);
@@ -55,38 +54,11 @@ public class HomeFragment extends Fragment {
             clipList.setAdapter(new ClipRecyclerViewAdapter(mValues, new HomeFragment(), view.getContext()));
             clipList.getAdapter().notifyDataSetChanged();
         }
-
-        /*final TextView textView = view.findViewById(R.id.test_sayhimatt_tv);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast t = Toast.makeText(v.getContext(), "Copied!", Toast.LENGTH_SHORT);
-                t.setGravity(Gravity.CENTER,0,0);
-                t.show();
-                String text = "Matt Says Hi!";
-                ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("", text);
-                clipboard.setPrimaryClip(clip);
-            }
-        });*/
         return view;
     }
 
-    /**
-     * Adds a plan to the database and list and finally updating the recycler view to visibly show the change
-     *
-     * @param pi
-     */
-    public void addClipToList(ClipItems.ClipItem pi) {
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID).child("PlannerItems");
-        String id = ref.push().getKey();
-        pi.setId(id);
-        ref.child(id).setValue(pi);
-        ClipItems.addItem(pi);
-        clipList.getAdapter().notifyDataSetChanged();
-    }
-
     private void retrieveClipItems() {
+        ClipItems.clear();
         currentUserID = mAuth.getCurrentUser().getUid();
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         DatabaseReference clipItems = database.child("Users").child(currentUserID).child("quickclips");
