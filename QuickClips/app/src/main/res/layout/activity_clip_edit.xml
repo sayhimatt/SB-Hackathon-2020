@@ -16,23 +16,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/title_ei"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/title_til"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/clip_title">
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rectangle_field">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/title_ei"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/clip_title" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/body_til"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/rectangle_field"
             android:hint="@string/clip_text">
 
             <com.google.android.material.textfield.TextInputEditText
