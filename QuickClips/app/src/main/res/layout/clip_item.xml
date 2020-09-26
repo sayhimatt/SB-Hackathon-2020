@@ -35,14 +35,14 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/bt_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/bt_copy"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_delete" />
+            android:src="@drawable/ic_baseline_delete"/>
 
         <ImageButton
             android:id="@+id/bt_copy"
