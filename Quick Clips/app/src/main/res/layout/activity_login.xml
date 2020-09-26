@@ -72,8 +72,8 @@
             android:id="@+id/bt_login_google"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="loginWithGoogle"
-            android:text="@string/login_google" />
+            android:onClick="signInWithGoogle"
+            android:text="@string/sign_in_google" />
     </LinearLayout>
 
     <Button
