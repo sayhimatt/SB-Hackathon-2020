@@ -25,9 +25,10 @@ public class ClipItems {
         private String title;
         private String category;
         private String text;
-        public ClipItem(){}
         public ClipItem(String title, String category, String text) {
-
+            this.title=title;
+            this.category=category;
+            this.text=text;
         }
 
         public String getTitle() {
