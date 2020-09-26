@@ -40,6 +40,26 @@ public class HomeFragment extends Fragment {
             mValues.add(a);
             mValues.add(a);
             mValues.add(a);
+            mValues.add(a);
+            mValues.add(a);
+            mValues.add(a);
+            mValues.add(a);
+            mValues.add(a);
+            mValues.add(a);
+            mValues.add(a);
+            mValues.add(a);
+            mValues.add(a);
+            mValues.add(a);
+            mValues.add(a);
+            mValues.add(a);mValues.add(a);
+            mValues.add(a);
+            mValues.add(a);
+            mValues.add(a);
+            mValues.add(a);
+            mValues.add(a);
+            mValues.add(a);
+            mValues.add(a);
+
             clipList = (RecyclerView) view.findViewById(R.id.clip_list);
             clipList.setLayoutManager(new LinearLayoutManager(context));
             clipList.setAdapter(new ClipRecyclerViewAdapter(mValues,new HomeFragment(), view.getContext()));
