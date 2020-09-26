@@ -138,7 +138,6 @@ public class SignInActivity extends AppCompatActivity {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account.getIdToken());
-                Log.d(TAG, "Success!");
             } catch (ApiException e) {
                 e.printStackTrace();
             }
@@ -155,6 +154,7 @@ public class SignInActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            Toast.makeText(SignInActivity.this, "Welcome!", Toast.LENGTH_SHORT).show();
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
 //                            updateUI(user);
