@@ -24,7 +24,11 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
     private FirebaseAuth mAuth;
     private String currentUserID;
 
-
+    public ClipRecyclerViewAdapter(List<ClipItems.ClipItem> items, HomeFragment homeFragment, Context c){
+        mValues = items;
+        this.homeFragment = homeFragment;
+        this.c = c;
+    }
     @Override
     public ViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
@@ -41,7 +45,7 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mValues.size();
     }
 
 
