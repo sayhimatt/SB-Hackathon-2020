@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void loginWithGoogle(View v) {
+    public void createRequest() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void signIn() {
+    public void signInWithGoogle(View v) {
         Intent intent = gsoClient.getSignInIntent();
         startActivityForResult(intent,0);
     }
