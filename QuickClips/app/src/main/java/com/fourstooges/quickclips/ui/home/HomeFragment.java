@@ -24,7 +24,6 @@ import com.fourstooges.quickclips.database.ClipItems;
 
 import java.util.List;
 
-import static androidx.core.content.ContextCompat.getSystemService;
 
 public class HomeFragment extends Fragment {
     private static RecyclerView clipList;
