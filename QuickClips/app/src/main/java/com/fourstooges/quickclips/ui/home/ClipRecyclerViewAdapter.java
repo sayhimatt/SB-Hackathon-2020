@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.fourstooges.quickclips.R;
 import com.fourstooges.quickclips.activity.ClipEditActivity;
 import com.fourstooges.quickclips.database.ClipItems;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -52,6 +53,7 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
         System.out.println("id=" + mValues.get(position).getId());
         // Apply Animations
 //        holder.modify_b.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
+        holder.btDelete.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
         holder.btCopy.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
         holder.tvTitle.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
         holder.tvText.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
@@ -80,7 +82,6 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
         holder.btDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "Deleted!", Toast.LENGTH_SHORT).show();
                 String clipId = mValues.get(position).getId();
                 String userId = mAuth.getCurrentUser().getUid();
                 DatabaseReference ref = FirebaseDatabase.getInstance()
@@ -88,7 +89,11 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
                         .child(userId).child("quickclips").child(clipId);
                 System.out.println(ref);
                 System.out.println(ref.getKey());
-                ClipRecyclerViewAdapter.this.notifyItemRemoved(position);
+                Task<Void> task = ref.removeValue();
+                if (task.isSuccessful())
+                    Toast.makeText(view.getContext(), "Deleted!", Toast.LENGTH_SHORT).show();
+                ClipItems.removeItem(position);
+                ClipRecyclerViewAdapter.this.notifyDataSetChanged();
             }
         });
 
