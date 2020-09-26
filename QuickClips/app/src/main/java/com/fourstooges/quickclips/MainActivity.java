@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.renderscript.RenderScript;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,7 +24,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.fourstooges.quickclips.activity.SignInActivity;
 import com.fourstooges.quickclips.database.ClipItems;
-import com.fourstooges.quickclips.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -67,7 +65,10 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.about:
-                // Need to add description of the app here
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(R.string.app_name);
+                builder.setMessage(R.string.about);
+                builder.show();
                 return true;
             case R.id.guidi:
                 intent.setData(Uri.parse("https://github.com/sayhimatt"));
@@ -144,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
     public static void setClipRecyclerView(RecyclerView rc){
         clipRecyclerView = rc;
     }
-    
+
     public static RecyclerView getClipRecyclerView(){
         return clipRecyclerView;
     }
