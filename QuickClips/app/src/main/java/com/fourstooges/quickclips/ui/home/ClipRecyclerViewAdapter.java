@@ -52,7 +52,7 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
                 Toast t = Toast.makeText(view.getContext(), "Copied!", Toast.LENGTH_SHORT);
                 t.setGravity(Gravity.CENTER,0,0);
                 t.show();
-                String text = "Matt Says Hi!";
+                String text = holder.main_tv.getText().toString();
                 ClipboardManager clipboard = (ClipboardManager) c.getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("", text);
                 clipboard.setPrimaryClip(clip);
@@ -66,7 +66,7 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
                 Toast t = Toast.makeText(view.getContext(), "Copied!", Toast.LENGTH_SHORT);
                 t.setGravity(Gravity.CENTER,0,0);
                 t.show();
-                String text = "Matt Says Hi!";
+                String text = holder.main_tv.getText().toString();
                 ClipboardManager clipboard = (ClipboardManager) c.getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("", text);
                 clipboard.setPrimaryClip(clip);

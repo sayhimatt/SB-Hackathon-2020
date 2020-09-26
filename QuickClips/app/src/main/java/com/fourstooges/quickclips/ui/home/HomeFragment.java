@@ -35,7 +35,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         if (view.findViewById(R.id.clip_list) instanceof RecyclerView){
             Context context = view.getContext();
-            ClipItems.ClipItem a = new ClipItems.ClipItem();
+            ClipItems.ClipItem a = new ClipItems.ClipItem("This is a test","Research","This is helping us finish the project :3");
             mValues.add(a);
             mValues.add(a);
             mValues.add(a);
