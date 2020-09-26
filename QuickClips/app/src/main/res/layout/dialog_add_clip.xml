@@ -29,6 +29,8 @@
                     android:id="@+id/tf_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rectangle_field"
+                    android:padding="10dp"
                     android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -44,7 +46,9 @@
                     android:id="@+id/tf_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textLongMessage|textMultiLine" />
+                    android:background="@drawable/rectangle_field"
+                    android:inputType="textLongMessage|textMultiLine"
+                    android:padding="10dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
