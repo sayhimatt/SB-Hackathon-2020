@@ -25,6 +25,7 @@ public class ClipItems {
         private String title;
         private String category;
         private String text;
+        private String id;
         public ClipItem(String title, String category, String text) {
             this.title=title;
             this.category=category;
@@ -53,6 +54,14 @@ public class ClipItems {
 
         public void setText(String text) {
             this.text = text;
+        }
+
+        public void setId(String id){
+            this.id=id;
+        }
+
+        public String getId(){
+            return id;
         }
     }
 

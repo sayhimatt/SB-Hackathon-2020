@@ -26,9 +26,13 @@ import com.fourstooges.quickclips.database.ClipItems;
 import com.fourstooges.quickclips.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
     private static RecyclerView clipRecyclerView;
+    private FirebaseAuth mAuth;
+    private String currentUserID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,7 +124,13 @@ public class MainActivity extends AppCompatActivity {
         // TODO Your Turn Matt Guidi
         ClipItems.addItem(new ClipItems.ClipItem(title,"null", text));
         clipRecyclerView.getAdapter().notifyDataSetChanged();
-
+        ClipItems.ClipItem c= new ClipItems.ClipItem(title,text,null);
+        mAuth= FirebaseAuth.getInstance();
+        currentUserID = mAuth.getCurrentUser().getUid();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID).child("PlannerItems");
+        String id= ref.push().getKey();
+        c.setId(id);
+        ref.child(id).setValue(c);
     }
     public static void setClipRecyclerView(RecyclerView rc){
         clipRecyclerView = rc;
