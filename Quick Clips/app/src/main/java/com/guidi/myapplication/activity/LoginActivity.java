@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         }else {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_login);
-            auth = FirebaseAuth.getInstance();
+            createRequest();
         }
     }
 
@@ -50,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         gsoClient = GoogleSignIn.getClient(this, gso);
+        auth = FirebaseAuth.getInstance();
     }
 
 
