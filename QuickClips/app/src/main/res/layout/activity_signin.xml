@@ -8,7 +8,7 @@
     android:paddingTop="10dp"
     android:paddingRight="20dp"
     android:paddingBottom="10dp"
-    tools:context=".activity.SignInActivity">
+    tools:context="com.fourstooges.quickclips.activity.SignInActivity">
 
     <ImageView
         android:id="@+id/iv_app"
