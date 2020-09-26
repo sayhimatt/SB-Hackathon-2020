@@ -43,6 +43,9 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
 
+        holder.title_tv.setText(mValues.get(position).getTitle());
+        holder.main_tv.setText(mValues.get(position).getText());
+
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
@@ -69,6 +72,15 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
                 clipboard.setPrimaryClip(clip);
             }
         });
+
+        holder.copy_b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+
 
     }
 

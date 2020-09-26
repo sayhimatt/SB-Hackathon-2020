@@ -30,27 +30,27 @@ public class ClipItems {
 
         }
 
-        protected String getTitle() {
+        public String getTitle() {
             return title;
         }
 
-        protected void setTitle(String title) {
+        public void setTitle(String title) {
             this.title = title;
         }
 
-        protected String getCategory() {
+        public String getCategory() {
             return category;
         }
 
-        protected void setCategory(String category) {
+        public void setCategory(String category) {
             this.category = category;
         }
 
-        protected String getText() {
+        public String getText() {
             return text;
         }
 
-        protected void setText(String text) {
+        public void setText(String text) {
             this.text = text;
         }
     }
