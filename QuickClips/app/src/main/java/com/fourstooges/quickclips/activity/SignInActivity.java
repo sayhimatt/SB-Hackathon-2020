@@ -30,12 +30,18 @@ public class SignInActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 9001;
     private GoogleSignInClient gsoClient;
     private FirebaseAuth mAuth;
+    private EditText tfEmail, tfPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
         createRequest();
+    }
+
+    public void initControls() {
+        tfEmail = findViewById(R.id.tf_email);
+        tfPassword = findViewById(R.id.tf_password);
     }
 
     public void createRequest() {
@@ -58,8 +64,8 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     public void sign_in(View v) {
-        String email = ((EditText) findViewById(R.id.edit_text_username)).getText().toString();
-        String password = ((EditText) findViewById(R.id.edit_text_password)).getText().toString();
+        String email = ((EditText) findViewById(R.id.tf_email)).getText().toString();
+        String password = ((EditText) findViewById(R.id.tf_password)).getText().toString();
 
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Please Fill In The Empty Fields", Toast.LENGTH_LONG).show();
@@ -87,8 +93,8 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     public void sign_up(View v) {
-        String email = ((EditText) findViewById(R.id.edit_text_username)).getText().toString();
-        String password = ((EditText) findViewById(R.id.edit_text_password)).getText().toString();
+        String email = ((EditText) findViewById(R.id.tf_email)).getText().toString();
+        String password = ((EditText) findViewById(R.id.tf_password)).getText().toString();
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Please Fill In The Empty Fields", Toast.LENGTH_LONG).show();
         } else {
