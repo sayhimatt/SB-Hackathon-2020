@@ -124,7 +124,7 @@
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/ic_email"
         android:onClick="sign_up"
-        android:text="@string/sign_up"
+        android:text="@string/sign_up_with_email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
