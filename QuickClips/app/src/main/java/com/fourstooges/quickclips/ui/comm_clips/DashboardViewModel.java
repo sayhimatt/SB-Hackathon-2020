@@ -1,4 +1,4 @@
-package com.fourstooges.quickclips.ui.dashboard;
+package com.fourstooges.quickclips.ui.comm_clips;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

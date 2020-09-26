@@ -1,4 +1,4 @@
-package com.fourstooges.quickclips.ui.dashboard;
+package com.fourstooges.quickclips.ui.comm_clips;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
