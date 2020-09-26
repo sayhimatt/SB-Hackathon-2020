@@ -22,6 +22,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.fourstooges.quickclips.MainActivity;
 import com.fourstooges.quickclips.R;
 import com.fourstooges.quickclips.database.ClipItems;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -29,6 +35,9 @@ import java.util.List;
 public class HomeFragment extends Fragment {
     private static RecyclerView clipList;
     private static List<ClipItems.ClipItem> mValues = ClipItems.ITEMS;
+    private FirebaseAuth mAuth;
+    private String currentUserID;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -43,7 +52,6 @@ public class HomeFragment extends Fragment {
             mValues.add(a);
 
             // AS.
-
             clipList = (RecyclerView) view.findViewById(R.id.clip_list);
             MainActivity.setClipRecyclerView(clipList);
             clipList.setLayoutManager(new LinearLayoutManager(context));
@@ -67,7 +75,33 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+    private void retrievePlannerItems() {
+        currentUserID = mAuth.getCurrentUser().getUid();
+        mAuth= FirebaseAuth.getInstance();
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference clipItems = database.child("Users").child(currentUserID).child("quickclips");
+        clipItems.addListenerForSingleValueEvent(new ValueEventListener() {
+            /**
+             * Modifies the list based on any data changes detected in the database and updates the recycler view accordingly
+             * @param snapshot
+             */
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot singleSnapShot : snapshot.getChildren()) {
+                    ClipItems.ClipItem item = singleSnapShot.getValue(ClipItems.ClipItem.class);
+                    if(!ClipItems.ITEMS.contains(item)){
+                        ClipItems.addItem(item);
+                    }
+                }
+                clipList.getAdapter().notifyDataSetChanged();
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+
+        });
+    };
 
 }
