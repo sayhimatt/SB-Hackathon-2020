@@ -3,10 +3,10 @@
     <alpha
         android:fromAlpha="0.0"
         android:toAlpha="1.0"
-        android:duration="750"
+        android:duration="300"
         />
     <translate
-        android:fromXDelta="-200%"
+        android:fromXDelta="-300%"
         android:toXDelta="0%"
         android:duration="500"
         />
