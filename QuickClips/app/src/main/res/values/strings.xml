@@ -12,4 +12,8 @@
     <string name="password">Password</string>
     <string name="sign_in_google">Sign-in With Google</string>
     <string name="sign_up">Sign Up with Email</string>
+    <string name="sample_title_s">Sample Title</string>
+    <string name="sample_text_s">Sample Text</string>
+    <string name="modify">Modify</string>
+    <string name="copy_bs">Copy</string>
 </resources>
