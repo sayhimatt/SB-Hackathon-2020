@@ -29,13 +29,13 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
     private List<ClipItems.ClipItem> mValues;
     private HomeFragment homeFragment;
     private Context c;
-//    private FirebaseAuth mAuth;
-//    private String currentUserID;
+    private FirebaseAuth mAuth;
 
     public ClipRecyclerViewAdapter(List<ClipItems.ClipItem> items, HomeFragment homeFragment, Context c) {
         mValues = items;
         this.homeFragment = homeFragment;
         this.c = c;
+        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -59,13 +59,10 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                Toast t = Toast.makeText(view.getContext(), "Copied!", Toast.LENGTH_SHORT);
-                t.setGravity(Gravity.CENTER, 0, 0);
-                t.show();
+                Toast.makeText(view.getContext(), "Copied!", Toast.LENGTH_SHORT).show();
                 String text = holder.main_tv.getText().toString();
                 ClipboardManager clipboard = (ClipboardManager) c.getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("", text);
-                clipboard.setPrimaryClip(clip);
+                clipboard.setPrimaryClip(ClipData.newPlainText("", text));
                 return true;
             }
         });
@@ -84,6 +81,7 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), "Deleted!", Toast.LENGTH_SHORT).show();
+
             }
         });
 
