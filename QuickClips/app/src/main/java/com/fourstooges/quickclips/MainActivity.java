@@ -4,10 +4,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -81,23 +84,31 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void addClip(MenuItem item) {
+    public void showAddClipDialog(MenuItem item) {
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.dialog_add_clip, null);
+        final EditText tfTitle = view.findViewById(R.id.tf_title);
+        final EditText tfText = view.findViewById(R.id.tf_text);
+        final CheckBox checkBox = view.findViewById(R.id.check_box_public);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(view);
         builder.setTitle(getString(R.string.add_clip));
-        builder.setMessage("Hello World!");
         builder.setPositiveButton(R.string.add_clip, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 System.out.println("Adding clip");
+                String title = tfTitle.getText().toString();
+                String text = tfText.getText().toString();
+                boolean isPublic = checkBox.isActivated();
+                addClip(title, text, isPublic);
             }
         });
-        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                System.out.println("NO");
-            }
-        });
+        builder.setNegativeButton(R.string.cancel, null);
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    private void addClip(String title, String text, boolean isPublic) {
+        // TODO Your Turn Matt Guidi
     }
 }
