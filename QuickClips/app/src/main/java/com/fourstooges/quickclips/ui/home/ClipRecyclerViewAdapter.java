@@ -76,9 +76,6 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
                 ClipItems.ClipItem item = mValues.get(position);
                 Intent i = new Intent(c, ClipEditActivity.class);
                 i.putExtra("clip_item", item);
-//                i.putExtra("key_title", holder.title_tv.getText());
-//                i.putExtra("key_text", holder.main_tv.getText());
-//                i.putExtra("key_public", holder.) END GAME STUFF
                 c.startActivity(i);
             }
         });
