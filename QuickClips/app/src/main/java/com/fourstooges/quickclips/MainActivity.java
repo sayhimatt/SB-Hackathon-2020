@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showAddClipDialog(MenuItem item) {
-        clipRecyclerView = (RecyclerView)findViewById(R.id.clip_list);
+        clipRecyclerView = findViewById(R.id.clip_list);
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_add_clip, null);
         final EditText tfTitle = view.findViewById(R.id.tf_title);
