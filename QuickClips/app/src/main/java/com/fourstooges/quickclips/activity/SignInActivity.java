@@ -37,6 +37,7 @@ public class SignInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+        initControls();
         createRequest();
     }
 
@@ -53,7 +54,7 @@ public class SignInActivity extends AppCompatActivity {
         gsoClient = GoogleSignIn.getClient(this, gso);
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null){
+        if (currentUser != null) {
             Toast.makeText(SignInActivity.this, "Welcome " + currentUser.getDisplayName() + "!", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(SignInActivity.this, MainActivity.class);
             String currentUserID = mAuth.getCurrentUser().getUid();
@@ -65,8 +66,8 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     public void sign_in(View v) {
-        String email = ((EditText) findViewById(R.id.tf_email)).getText().toString();
-        String password = ((EditText) findViewById(R.id.tf_password)).getText().toString();
+        String email = tfEmail.getText().toString();
+        String password = tfPassword.getText().toString();
 
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Please Fill In The Empty Fields", Toast.LENGTH_LONG).show();
@@ -136,5 +137,23 @@ public class SignInActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void forgotPass(View v) {
+        final String email = tfEmail.getText().toString();
+        if (!email.isEmpty()) {
+            mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(SignInActivity.this, "We sent an email to " + email, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(SignInActivity.this, "Failed to send email", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        } else {
+            Toast.makeText(this, "Fill Email Field", Toast.LENGTH_SHORT).show();
+        }
     }
 }
