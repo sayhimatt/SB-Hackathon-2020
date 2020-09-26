@@ -2,8 +2,10 @@ package com.guidi.myapplication.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,6 +29,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.guidi.myapplication.MainActivity;
 import com.guidi.myapplication.R;
 
 public class SignInActivity extends AppCompatActivity {
@@ -38,7 +41,7 @@ public class SignInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         boolean matt = false;
-        if(matt) {
+        if (matt) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
             BottomNavigationView navView = findViewById(R.id.nav_view);
@@ -50,7 +53,7 @@ public class SignInActivity extends AppCompatActivity {
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
             NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
             NavigationUI.setupWithNavController(navView, navController);
-        }else {
+        } else {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_signin);
             createRequest();
@@ -68,15 +71,34 @@ public class SignInActivity extends AppCompatActivity {
     }
 
 
-
     public void sign_up(View v) {
-//        Intent intent = new Intent(this, SignUpActivity.class);
-//        startActivity(intent);
+        String email = ((EditText) findViewById(R.id.edit_text_username)).getText().toString();
+        String password = ((EditText) findViewById(R.id.edit_text_password)).getText().toString();
+        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+            Toast.makeText(this, "Please Fill In The Empty Fields", Toast.LENGTH_LONG).show();
+        } else {
+            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(SignInActivity.this, "Successfully Registered", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+                        String currentUserID = mAuth.getCurrentUser().getUid();
+                        intent.putExtra("userID", currentUserID);
+                        setResult(RESULT_OK, intent);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(SignInActivity.this, "Registration Failed", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+        }
     }
 
     public void signInWithGoogle(View v) {
         Intent intent = gsoClient.getSignInIntent();
-        startActivityForResult(intent,RC_SIGN_IN);
+        startActivityForResult(intent, RC_SIGN_IN);
     }
 
     @Override
