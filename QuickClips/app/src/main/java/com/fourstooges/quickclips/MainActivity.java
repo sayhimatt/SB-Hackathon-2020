@@ -1,5 +1,6 @@
 package com.fourstooges.quickclips;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.about_menu, menu );
+        inflater.inflate(R.menu.about_menu, menu);
         return true;
     }
 
@@ -84,6 +85,18 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("Adding a clip");
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.add_clip));
+        builder.setPositiveButton(R.string.add_clip, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
         AlertDialog dialog = builder.create();
         dialog.show();
     }
