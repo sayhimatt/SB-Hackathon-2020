@@ -4,8 +4,8 @@
     android:id="@+id/clip_cv"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="15dp"
-    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="5dp"
     app:cardElevation="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,30 +14,35 @@
 
         <TextView
             android:id="@+id/title_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="5dp"
             android:text="@string/sample_title_s"
             app:layout_constraintBottom_toBottomOf="@+id/modify_b"
+            app:layout_constraintEnd_toStartOf="@+id/modify_b"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/modify_b" />
 
         <TextView
             android:id="@+id/mText_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
             android:text="@string/sample_text_s"
             app:layout_constraintBottom_toBottomOf="@+id/copy_b"
+            app:layout_constraintEnd_toStartOf="@+id/copy_b"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/copy_b" />
+            app:layout_constraintTop_toTopOf="@+id/copy_b"
+            app:layout_constraintVertical_bias="0.448" />
 
         <Button
             android:id="@+id/modify_b"
             style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="serif-monospace"
             android:text="@string/modify"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +53,6 @@
             style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:fontFamily="serif-monospace"
             android:text="@string/copy_bs"
             app:layout_constraintEnd_toEndOf="parent"
