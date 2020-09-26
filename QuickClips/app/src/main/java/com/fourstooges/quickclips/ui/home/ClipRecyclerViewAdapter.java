@@ -59,6 +59,7 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
         holder.btCopy.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
         holder.tvTitle.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
         holder.tvText.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
+        holder.cbPublic.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
