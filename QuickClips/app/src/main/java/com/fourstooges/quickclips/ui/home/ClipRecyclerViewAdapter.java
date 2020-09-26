@@ -30,12 +30,19 @@ import java.util.List;
 public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerViewAdapter.ViewHolder> {
     private List<ClipItems.ClipItem> mValues;
     private Context c;
+    private boolean flag;
     private FirebaseAuth mAuth;
 
     public ClipRecyclerViewAdapter(List<ClipItems.ClipItem> items, Context c) {
         mValues = items;
         this.c = c;
         mAuth = FirebaseAuth.getInstance();
+    }
+
+    public ClipRecyclerViewAdapter(List<ClipItems.ClipItem> items, Context c, boolean flag) {
+        mValues = items;
+        this.c = c;
+        this.flag = flag; // if flag is true, then hide the buttons
     }
 
     @Override
@@ -47,6 +54,11 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
+        if (flag) {
+            holder.btDelete.setVisibility(View.INVISIBLE);
+            holder.btCopy.setVisibility(View.INVISIBLE);
+            holder.cbPublic.setVisibility(View.INVISIBLE);
+        }
         holder.tvTitle.setText(mValues.get(position).getTitle());
         holder.tvText.setText(mValues.get(position).getText());
         holder.cbPublic.setChecked(mValues.get(position).isPublic());

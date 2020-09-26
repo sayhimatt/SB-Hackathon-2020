@@ -61,19 +61,19 @@ public class CommFragment extends Fragment {
 
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(dataSnapshot.exists()){
+                        if (dataSnapshot.exists()) {
 
-                            for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                                 int i = 0;
-                                for(DataSnapshot innerSnapShot : snapshot.getChildren()){
-                                    if((Boolean) innerSnapShot.child("public").getValue() == true) {
+                                for (DataSnapshot innerSnapShot : snapshot.getChildren()) {
+                                    if ((Boolean) innerSnapShot.child("public").getValue() == true) {
                                         if (innerSnapShot.child("title").getValue().toString().toLowerCase().contains(tfKey.getText().toString().toLowerCase())) {
                                             String title = innerSnapShot.child("title").getValue().toString();
                                             String cat = innerSnapShot.child("category").getValue().toString();
                                             String text = innerSnapShot.child("text").getValue().toString();
 
 
-                                            ClipItems.ClipItem c = new ClipItems.ClipItem(title,cat,text,true);
+                                            ClipItems.ClipItem c = new ClipItems.ClipItem(title, cat, text, true);
                                             clipItems.add(c);
                                             adapter.notifyDataSetChanged();
                                         }
