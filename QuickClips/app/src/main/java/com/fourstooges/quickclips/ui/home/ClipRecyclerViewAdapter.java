@@ -28,8 +28,8 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
     private List<ClipItems.ClipItem> mValues;
     private HomeFragment homeFragment;
     private Context c;
-    private FirebaseAuth mAuth;
-    private String currentUserID;
+//    private FirebaseAuth mAuth;
+//    private String currentUserID;
 
     public ClipRecyclerViewAdapter(List<ClipItems.ClipItem> items, HomeFragment homeFragment, Context c){
         mValues = items;
