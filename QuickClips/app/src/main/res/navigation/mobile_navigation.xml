@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.fourstooges.quickclips.ui.comm_clips.DashboardFragment"
+        android:name="com.fourstooges.quickclips.ui.comm_clips.CommFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_comm" />
 
     <fragment
         android:id="@+id/navigation_account"

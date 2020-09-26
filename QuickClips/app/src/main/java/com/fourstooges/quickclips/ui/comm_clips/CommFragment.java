@@ -15,15 +15,15 @@ import androidx.lifecycle.ViewModelProviders;
 import com.fourstooges.quickclips.R;
 
 
-public class DashboardFragment extends Fragment {
+public class CommFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private CommViewModel dashboardViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+                ViewModelProviders.of(this).get(CommViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_comm, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
