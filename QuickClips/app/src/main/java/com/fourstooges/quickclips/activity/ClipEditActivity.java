@@ -58,7 +58,6 @@ public class ClipEditActivity extends AppCompatActivity {
         ref = ref.child("Users").child(mAuth.getCurrentUser().getUid()).child("quickclips");
         Task<Void> task = ref.child(clipItem.getId()).setValue(clipItem);
         Toast.makeText(this, "Saved!", Toast.LENGTH_SHORT).show();
-//        MainActivity.getClipRecyclerView().getAdapter().notifyDataSetChanged();
         finish();
     }
 }
