@@ -71,7 +71,11 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                c.startActivity(new Intent(c, ClipEditActivity.class));
+                Intent i = new Intent(c, ClipEditActivity.class);
+                i.putExtra("key_title", holder.title_tv.getText());
+                i.putExtra("key_text", holder.main_tv.getText());
+//                i.putExtra("key_public", holder.) END GAME STUFF
+                c.startActivity(i);
             }
         });
 
