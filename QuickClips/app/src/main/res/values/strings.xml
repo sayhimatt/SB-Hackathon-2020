@@ -9,7 +9,8 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="sign_in_google">Sign In With Google</string>
-    <string name="sign_up">Sign Up with Email</string>
+    <string name="sign_up_with_email">Sign Up with Email</string>
+    <string name="sign_up">Sign Up</string>
     <string name="sample_title_s">Sample Title</string>
     <string name="sample_text_s">Sample Text</string>
     <string name="modify">Modify</string>
