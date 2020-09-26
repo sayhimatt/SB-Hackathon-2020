@@ -131,7 +131,6 @@ public class MainActivity extends AppCompatActivity {
         ClipItems.ClipItem c= new ClipItems.ClipItem(title, "null", text);
         ClipItems.addItem(c); // c from line 127
         clipRecyclerView.getAdapter().notifyDataSetChanged();
-
         mAuth= FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID).child("quickclips");
