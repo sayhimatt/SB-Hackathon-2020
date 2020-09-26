@@ -145,9 +145,6 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void firebaseAuthWithGoogle(String idToken) {
-        // [START_EXCLUDE silent]
-//        showProgressBar();
-        // [END_EXCLUDE]
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -155,19 +152,10 @@ public class SignInActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(SignInActivity.this, "Welcome!", Toast.LENGTH_SHORT).show();
-                            // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-//                            updateUI(user);
                         } else { // Failed to login
-//                            // If sign in fails, display a message to the user.
-//                            Snackbar.make(mBinding.mainLayout, "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
-//                            updateUI(null);
                             Toast.makeText(getBaseContext(), "Login Failed!", Toast.LENGTH_SHORT).show();
                         }
-
-                        // [START_EXCLUDE]
-//                        hideProgressBar();
-                        // [END_EXCLUDE]
                     }
                 });
     }
