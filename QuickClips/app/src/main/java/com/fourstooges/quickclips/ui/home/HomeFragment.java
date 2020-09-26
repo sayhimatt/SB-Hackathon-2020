@@ -48,7 +48,7 @@ public class HomeFragment extends Fragment {
             clipList = view.findViewById(R.id.clip_list);
 //            MainActivity.setClipRecyclerView(clipList);
             clipList.setLayoutManager(new LinearLayoutManager(context));
-            clipList.setAdapter(new ClipRecyclerViewAdapter(mValues, new HomeFragment(), view.getContext()));
+            clipList.setAdapter(new ClipRecyclerViewAdapter(mValues, view.getContext()));
             clipList.getAdapter().notifyDataSetChanged();
         }
         return view;
