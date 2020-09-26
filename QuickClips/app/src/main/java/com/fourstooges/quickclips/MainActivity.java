@@ -82,20 +82,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addClip(MenuItem item) {
-        System.out.println("Adding a clip");
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.add_clip));
         builder.setMessage("Hello World!");
         builder.setPositiveButton(R.string.add_clip, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                System.out.println("Adding clip");
             }
         });
         builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                System.out.println("NO");
             }
         });
         AlertDialog dialog = builder.create();
