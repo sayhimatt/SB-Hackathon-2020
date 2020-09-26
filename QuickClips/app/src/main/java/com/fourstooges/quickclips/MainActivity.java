@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.guidi.myapplication.R;
@@ -50,15 +51,23 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.guidi:
                 intent.setData(Uri.parse("https://github.com/sayhimatt"));
+                startActivity(intent);
                 return true;
             case R.id.campos:
                 intent.setData(Uri.parse("https://github.com/Camposm97"));
+                startActivity(intent);
                 return true;
             case R.id.kleister:
                 intent.setData(Uri.parse("https://github.com/kiefuh"));
+                startActivity(intent);
                 return true;
             case R.id.salomon:
                 intent.setData(Uri.parse("https://github.com/adriana-ss"));
+                startActivity(intent);
+                return true;
+            case R.id.sign_out:
+                Toast.makeText(this, "Signing out", Toast.LENGTH_SHORT).show();
+                // sign out
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
