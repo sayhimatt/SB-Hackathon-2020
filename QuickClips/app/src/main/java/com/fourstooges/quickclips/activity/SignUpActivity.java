@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -20,13 +21,24 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    private EditText tfEmail, tfPassword, tfConfirmPassword;
+    private Button btSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         mAuth = FirebaseAuth.getInstance();
-        
+        tfEmail = findViewById(R.id.tf_email);
+        tfPassword = findViewById(R.id.tf_layout_password);
+        tfConfirmPassword = findViewById(R.id.tf_layout_confirm_password);
+        btSignUp = findViewById(R.id.bt_sign_up);
+        btSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
     }
 
     public void signUp() {
