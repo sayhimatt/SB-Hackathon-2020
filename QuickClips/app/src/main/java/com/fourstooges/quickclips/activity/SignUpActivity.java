@@ -35,7 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
         tfPassword = findViewById(R.id.edit_text_password);
         tfConfirmPassword = findViewById(R.id.edit_confirm_text_password);
         btSignUp = findViewById(R.id.bt_sign_up);
-        
+
         tfConfirmPassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
