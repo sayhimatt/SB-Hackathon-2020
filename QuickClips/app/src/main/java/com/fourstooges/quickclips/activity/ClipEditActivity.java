@@ -12,7 +12,7 @@ public class ClipEditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clip_edit);
-        String title = getIntent().getStringExtra("key_title");
-        System.out.println(title);
+//        String title = getIntent().getStringExtra("key_title");
+//        System.out.println(title);
     }
 }
