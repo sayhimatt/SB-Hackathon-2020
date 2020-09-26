@@ -2,7 +2,9 @@ package com.guidi.myapplication.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -56,6 +58,7 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     public void createRequest() {
+        System.out.println("Creating request...");
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -86,6 +89,7 @@ public class SignInActivity extends AppCompatActivity {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account.getIdToken());
+                Log.d(TAG, "Success!");
             } catch (ApiException e) {
                 e.printStackTrace();
             }
@@ -109,6 +113,7 @@ public class SignInActivity extends AppCompatActivity {
 //                            // If sign in fails, display a message to the user.
 //                            Snackbar.make(mBinding.mainLayout, "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
 //                            updateUI(null);
+                            Toast.makeText(getBaseContext(), "Login Failed!", Toast.LENGTH_SHORT).show();
                         }
 
                         // [START_EXCLUDE]
