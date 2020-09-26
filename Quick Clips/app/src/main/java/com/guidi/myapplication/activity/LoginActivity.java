@@ -14,10 +14,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.guidi.myapplication.R;
 
 public class LoginActivity extends AppCompatActivity {
 //    private GoogleSignInClient gsoClient; Adriana is taking too long
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         }else {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_login);
+            auth = FirebaseAuth.getInstance();
         }
     }
 
