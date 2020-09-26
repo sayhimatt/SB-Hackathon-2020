@@ -1,4 +1,4 @@
-package com.guidi.myapplication.activity;
+package com.fourstooges.quickclips.activity;
 
 import android.content.Intent;
 import android.os.Bundle;

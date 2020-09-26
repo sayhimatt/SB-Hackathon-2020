@@ -1,4 +1,4 @@
-package com.guidi.myapplication;
+package com.fourstooges.quickclips;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -6,6 +6,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.guidi.myapplication.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
