@@ -1,5 +1,6 @@
 package com.fourstooges.quickclips.database;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class ClipItems {
         return ITEMS.get(index);
     }
 
-    public static class ClipItem {
+    public static class ClipItem implements Serializable {
         private String title;
         private String category;
         private String text;
