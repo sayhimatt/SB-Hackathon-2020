@@ -1,4 +1,4 @@
-package com.guidi.myapplication.ui.notifications;
+package com.fourstooges.quickclips.ui.notifications;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

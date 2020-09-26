@@ -1,4 +1,4 @@
-package com.guidi.myapplication.ui.dashboard;
+package com.fourstooges.quickclips.ui.dashboard;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

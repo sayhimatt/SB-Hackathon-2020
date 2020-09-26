@@ -10,9 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.fourstooges.quickclips.R;
 import com.fourstooges.quickclips.database.ClipItems;
 import com.google.firebase.auth.FirebaseAuth;
-import com.guidi.myapplication.R;
+
 
 import java.util.List;
 
