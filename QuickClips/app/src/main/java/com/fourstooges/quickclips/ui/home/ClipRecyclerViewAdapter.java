@@ -101,7 +101,7 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
                 String userId = mAuth.getCurrentUser().getUid();
                 DatabaseReference ref = FirebaseDatabase.getInstance()
                         .getReference().child("Users")
-                        .child(userId).child("quickclips").child(clipId);
+                        .child(userId).child(clipId);
                 System.out.println(ref);
                 System.out.println(ref.getKey());
                 Task<Void> task = ref.removeValue();
