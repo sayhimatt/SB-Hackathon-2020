@@ -1,5 +1,8 @@
 package com.guidi.myapplication.ui.home;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -16,6 +19,8 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.guidi.myapplication.R;
 
+import static androidx.core.content.ContextCompat.getSystemService;
+
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
@@ -31,9 +36,13 @@ public class HomeFragment extends Fragment {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast t = Toast.makeText(v.getContext(), "You triggered me go away", Toast.LENGTH_SHORT);
+                Toast t = Toast.makeText(v.getContext(), "Copied!", Toast.LENGTH_SHORT);
                 t.setGravity(Gravity.CENTER,0,0);
                 t.show();
+                String text = "Matt Says Hi!";
+                ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("", text);
+                clipboard.setPrimaryClip(clip);
             }
         });
         return root;
