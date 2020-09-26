@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.guidi.myapplication.R;
 
 public class LoginActivity extends AppCompatActivity {
+    private static final int RC_SIGN_IN = 111;
     private GoogleSignInClient gsoClient; // Adriana is taking too long
     private FirebaseAuth auth;
 
