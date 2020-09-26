@@ -131,7 +131,14 @@ public class MainActivity extends AppCompatActivity {
         String id= ref.push().getKey();
         c.setId(id);
         ref.child(id).setValue(c);
+
+         //  AS
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference clipItems = database.child("Users").child(currentUserID).child("PlannerItems");
+        PlannerContent.addItem(c);
+
     }
+
     public static void setClipRecyclerView(RecyclerView rc){
         clipRecyclerView = rc;
     }
