@@ -41,15 +41,14 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         if (view.findViewById(R.id.clip_list) instanceof RecyclerView){
             Context context = view.getContext();
             ClipItems.ClipItem a = new ClipItems.ClipItem("This is a test","Research","This is helping us finish the project :3");
             mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
+//            mValues.add(a);
+//            mValues.add(a);
+//            mValues.add(a);
 
             // AS.
             clipList = (RecyclerView) view.findViewById(R.id.clip_list);
@@ -73,6 +72,20 @@ public class HomeFragment extends Fragment {
             }
         });*/
         return view;
+    }
+
+    /**
+     *  Adds a plan to the database and list and finally updating the recycler view to visibly show the change
+     * @param pi
+     */
+    public void addPlanToList(ClipItems.ClipItem pi) {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID).child("PlannerItems");
+        String id = ref.push().getKey();
+        pi.setId(id);
+        ref.child(id).setValue(pi);
+        ClipItems.addItem(pi);
+        clipList.getAdapter().notifyDataSetChanged();
+
     }
 
     private void retrievePlannerItems() {
