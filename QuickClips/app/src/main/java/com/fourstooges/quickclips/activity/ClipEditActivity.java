@@ -29,13 +29,13 @@ public class ClipEditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clip_edit);
         clipItem = (ClipItems.ClipItem) getIntent().getSerializableExtra("clip_item");
-        System.out.println(clipItem.getId());
+        System.out.println(clipItem.getId() + ", " +  clipItem.isPublic());
         tfTitle = findViewById(R.id.title_ei);
         tfTitle.setText(clipItem.getTitle());
         tfBody = findViewById(R.id.body_ei);
         tfBody.setText(clipItem.getText());
         cbPublic = findViewById(R.id.check_box_public);
-        cbPublic.setEnabled(clipItem.isPublic());
+        cbPublic.setChecked(clipItem.isPublic());
         mAuth = FirebaseAuth.getInstance();
     }
 
@@ -49,7 +49,7 @@ public class ClipEditActivity extends AppCompatActivity {
     public void save(MenuItem item) {
         String title = tfTitle.getText().toString();
         String text = tfBody.getText().toString();
-        boolean isPublic = cbPublic.isEnabled();
+        boolean isPublic = cbPublic.isChecked();
         clipItem.setTitle(title);
         clipItem.setText(text);
         clipItem.setPublic(isPublic);
@@ -58,7 +58,6 @@ public class ClipEditActivity extends AppCompatActivity {
         ref = ref.child("Users").child(mAuth.getCurrentUser().getUid()).child("quickclips");
         Task<Void> task = ref.child(clipItem.getId()).setValue(clipItem);
         Toast.makeText(this, "Saved!", Toast.LENGTH_SHORT).show();
-//        MainActivity.getClipRecyclerView().getAdapter().notifyDataSetChanged();
         finish();
     }
 }

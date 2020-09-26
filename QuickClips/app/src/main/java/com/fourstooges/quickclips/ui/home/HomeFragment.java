@@ -29,6 +29,12 @@ public class HomeFragment extends Fragment {
     private FirebaseAuth mAuth;
     private String currentUserID;
 
+    @Override
+    public void onResume() {
+        retrieveClipItems();
+        super.onResume();
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         mAuth = FirebaseAuth.getInstance();
@@ -38,7 +44,7 @@ public class HomeFragment extends Fragment {
 
             // AS.
             System.out.println("Getting Clip Items...");
-            retrieveClipItems();
+//            retrieveClipItems();
             clipList = view.findViewById(R.id.clip_list);
 //            MainActivity.setClipRecyclerView(clipList);
             clipList.setLayoutManager(new LinearLayoutManager(context));

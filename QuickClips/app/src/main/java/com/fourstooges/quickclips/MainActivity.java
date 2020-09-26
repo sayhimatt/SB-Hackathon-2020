@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
-        Log.println(Log.ERROR,"Test",FirebaseAuth.getInstance().getCurrentUser().getUid());
+        Log.println(Log.ERROR, "Test", FirebaseAuth.getInstance().getCurrentUser().getUid());
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -101,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showAddClipDialog(MenuItem item) {
-        clipRecyclerView = findViewById(R.id.clip_list);
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_add_clip, null);
         final EditText tfTitle = view.findViewById(R.id.tf_title);
@@ -115,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 String title = tfTitle.getText().toString();
                 String text = tfText.getText().toString();
-                boolean isPublic = checkBox.isActivated();
+                boolean isPublic = checkBox.isChecked();
                 addClip(title, text, isPublic);
             }
         });
@@ -127,26 +126,25 @@ public class MainActivity extends AppCompatActivity {
     private void addClip(String title, String text, boolean isPublic) {
         System.out.println("Adding clip");
         System.out.println(title + ", " + text + ", " + isPublic);
-
-//        ClipItems.addItem(new ClipItems.ClipItem(title,"null", text));
-        ClipItems.ClipItem c= new ClipItems.ClipItem(title, "null", text, isPublic);
+        clipRecyclerView = findViewById(R.id.clip_list);
+        ClipItems.ClipItem c = new ClipItems.ClipItem(title, "null", text, isPublic);
         ClipItems.addItem(c); // c from line 127
         clipRecyclerView.getAdapter().notifyDataSetChanged();
-        mAuth= FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID).child("quickclips");
         System.out.println("refKey=" + ref.getKey());
-        String id= ref.push().getKey();
+        String id = ref.push().getKey();
         System.out.println("id=" + id);
         c.setId(id);
         ref.child(id).setValue(c);
     }
 
-    public static void setClipRecyclerView(RecyclerView rc){
+    public static void setClipRecyclerView(RecyclerView rc) {
         clipRecyclerView = rc;
     }
 
-    public static RecyclerView getClipRecyclerView(){
+    public static RecyclerView getClipRecyclerView() {
         return clipRecyclerView;
     }
 }
