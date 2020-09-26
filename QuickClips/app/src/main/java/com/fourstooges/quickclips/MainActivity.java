@@ -4,6 +4,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.renderscript.RenderScript;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
+        Log.println(Log.ERROR,"Test",FirebaseAuth.getInstance().getCurrentUser().getUid());
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -124,17 +127,16 @@ public class MainActivity extends AppCompatActivity {
         // TODO Your Turn Matt Guidi
         ClipItems.addItem(new ClipItems.ClipItem(title,"null", text));
         clipRecyclerView.getAdapter().notifyDataSetChanged();
+
         ClipItems.ClipItem c= new ClipItems.ClipItem(title,text,null);
+
         mAuth= FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID).child("PlannerItems");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID).child("quickclips");
         String id= ref.push().getKey();
         c.setId(id);
         ref.child(id).setValue(c);
 
-         //  AS
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference clipItems = database.child("Users").child(currentUserID).child("PlannerItems");
         ClipItems.addItem(c); // c from line 127
 
     }
