@@ -3,6 +3,7 @@ package com.fourstooges.quickclips.ui.home;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fourstooges.quickclips.R;
+import com.fourstooges.quickclips.activity.ClipEditActivity;
 import com.fourstooges.quickclips.database.ClipItems;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -23,7 +25,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.List;
 
 public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerViewAdapter.ViewHolder>{
-    private  List<ClipItems.ClipItem> mValues;
+    private List<ClipItems.ClipItem> mValues;
     private HomeFragment homeFragment;
     private Context c;
     private FirebaseAuth mAuth;
@@ -69,7 +71,7 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(c, "View!", Toast.LENGTH_SHORT).show();
+                c.startActivity(new Intent(c, ClipEditActivity.class));
             }
         });
 
