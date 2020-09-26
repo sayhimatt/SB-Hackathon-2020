@@ -7,13 +7,19 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.fourstooges.quickclips.R;
 import com.fourstooges.quickclips.database.ClipItems;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ClipEditActivity extends AppCompatActivity {
     private ClipItems.ClipItem clipItem;
     private EditText tfTitle, tfBody;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +31,7 @@ public class ClipEditActivity extends AppCompatActivity {
         tfTitle.setText(clipItem.getTitle());
         tfBody = findViewById(R.id.body_ei);
         tfBody.setText(clipItem.getText());
+        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -35,6 +42,18 @@ public class ClipEditActivity extends AppCompatActivity {
     }
 
     public void save(MenuItem item) {
-        
+        String title = tfTitle.getText().toString();
+        String text = tfBody.getText().toString();
+
+        clipItem.setTitle(title);
+        clipItem.setText(text);
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        ref = ref.child("Users").child(mAuth.getCurrentUser().getUid()).child("quickclips");
+        Task<Void> task = ref.child(clipItem.getId()).setValue(clipItem);
+        if (task.isSuccessful()) {
+            Toast.makeText(this, "Saved!", Toast.LENGTH_SHORT).show();
+            finish();
+        }
     }
 }
