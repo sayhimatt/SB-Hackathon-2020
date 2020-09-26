@@ -89,7 +89,7 @@ public class HomeFragment extends Fragment {
 
     private void retrievePlannerItems() {
         currentUserID = mAuth.getCurrentUser().getUid();
-        mAuth= FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         DatabaseReference clipItems = database.child("Users").child(currentUserID).child("quickclips");
         clipItems.addListenerForSingleValueEvent(new ValueEventListener() {
