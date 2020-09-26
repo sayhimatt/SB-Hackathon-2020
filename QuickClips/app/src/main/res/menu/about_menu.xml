@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/contributors"
+        app:showAsAction="never"
+        android:title="Contributors">
+
+        <menu>
+            <item android:id="@+id/guidi"
+                android:title="Matt Guidi" />
+            <item android:id="@+id/campos"
+                android:title="Michael Campos" />
+            <item android:id="@+id/kleister"
+                android:title="Kiefer Kleister" />
+            <item android:id="@+id/salomon"
+                android:title="Adriana Salomon" />
+        </menu>
+
+    </item>
+
+    <item android:id="@+id/about"
+        app:showAsAction="never"
+        android:title="About" />
+
+
+</menu>
