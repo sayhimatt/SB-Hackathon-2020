@@ -7,6 +7,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,9 +43,14 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-
         holder.title_tv.setText(mValues.get(position).getTitle());
         holder.main_tv.setText(mValues.get(position).getText());
+
+        // Apply Animations
+        holder.modify_b.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
+        holder.copy_b.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
+        holder.title_tv.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
+        holder.main_tv.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
