@@ -14,7 +14,7 @@
             android:parentActivityName=".MainActivity" ></activity>
         <activity
             android:name=".activity.SignUpActivity"
-            android:label="@string/sign_up"
+            android:label="@string/sign_up_with_email"
             android:parentActivityName=".activity.SignInActivity" />
         <activity
             android:name=".activity.SignInActivity"
