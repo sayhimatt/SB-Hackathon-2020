@@ -10,10 +10,14 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.guidi.myapplication.R;
 
 public class LoginActivity extends AppCompatActivity {
+//    private GoogleSignInClient gsoClient; Adriana is taking too long
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +41,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void loginWithGoogle(View v) {
-
+//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                .requestIdToken(getString(R.string.default_web_client_id))
+//                .requestEmail()
+//                .build();
+//        gsoClient = GoogleSignIn.getClient(this, gso);
     }
 
     public void sign_up(View v) {
