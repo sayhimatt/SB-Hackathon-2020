@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,11 +34,27 @@ public class SignUpActivity extends AppCompatActivity {
         tfEmail = findViewById(R.id.tf_email);
         tfPassword = findViewById(R.id.tf_layout_password);
         tfConfirmPassword = findViewById(R.id.tf_layout_confirm_password);
+        tfConfirmPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                
+            }
+        });
         btSignUp = findViewById(R.id.bt_sign_up);
         btSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+
             }
         });
     }
