@@ -76,7 +76,7 @@ public class SignInActivity extends AppCompatActivity {
 
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Please Fill In The Empty Fields", Toast.LENGTH_LONG).show();
-        } else {
+        } else { // Proceed to login
             System.out.println(email);
             System.out.println(password);
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
