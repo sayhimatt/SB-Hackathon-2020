@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.sign_out:
+                ClipItems.clear();
                 Toast.makeText(this, "Signed Out", Toast.LENGTH_SHORT).show();
                 FirebaseAuth.getInstance().signOut();
                 intent.setClass(this, SignInActivity.class);
