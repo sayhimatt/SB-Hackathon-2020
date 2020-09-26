@@ -3,5 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/save_mi"
-        android:title="@string/save" />
+        android:onClick="save"
+        android:title="@string/save"
+        app:showAsAction="always" />
 </menu>

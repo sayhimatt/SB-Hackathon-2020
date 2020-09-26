@@ -13,6 +13,7 @@ import com.fourstooges.quickclips.database.ClipItems;
 
 public class ClipEditActivity extends AppCompatActivity {
     private ClipItems.ClipItem clipItem;
+    private EditText tfTitle, tfBody;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +21,10 @@ public class ClipEditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_clip_edit);
         clipItem = (ClipItems.ClipItem) getIntent().getSerializableExtra("clip_item");
         System.out.println(clipItem.getId());
-        EditText title=findViewById(R.id.title_ei);
-        title.setText(clipItem.getTitle());
-        EditText body=findViewById(R.id.body_ei);
-        body.setText(clipItem.getText());
+        tfTitle = findViewById(R.id.title_ei);
+        tfTitle.setText(clipItem.getTitle());
+        tfBody = findViewById(R.id.body_ei);
+        tfBody.setText(clipItem.getText());
     }
 
     @Override
@@ -33,4 +34,7 @@ public class ClipEditActivity extends AppCompatActivity {
         return true;
     }
 
+    public void save(MenuItem item) {
+        
+    }
 }
