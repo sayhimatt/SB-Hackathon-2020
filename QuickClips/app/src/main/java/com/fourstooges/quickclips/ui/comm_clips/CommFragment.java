@@ -45,7 +45,7 @@ public class CommFragment extends Fragment {
     public void load() {
         rv = root.findViewById(R.id.clip_list);
         clipItems = new LinkedList<>();
-        adapter = new ClipRecyclerViewAdapter(clipItems, getContext());
+        adapter = new ClipRecyclerViewAdapter(clipItems, getContext(), true);
         rv.setAdapter(adapter);
         tfKey = root.findViewById(R.id.comm_search_et);
         btSearch = root.findViewById(R.id.comm_search_ib);

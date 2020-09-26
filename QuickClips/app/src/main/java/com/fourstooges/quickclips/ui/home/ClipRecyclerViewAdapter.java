@@ -58,6 +58,10 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
             holder.btDelete.setVisibility(View.INVISIBLE);
             holder.btCopy.setVisibility(View.INVISIBLE);
             holder.cbPublic.setVisibility(View.INVISIBLE);
+        } else {
+            holder.btDelete.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
+            holder.btCopy.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
+            holder.cbPublic.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
         }
         holder.tvTitle.setText(mValues.get(position).getTitle());
         holder.tvText.setText(mValues.get(position).getText());
@@ -65,11 +69,9 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
         System.out.println("id=" + mValues.get(position).getId());
         // Apply Animations
 //        holder.modify_b.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
-        holder.btDelete.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
-        holder.btCopy.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
+
         holder.tvTitle.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
         holder.tvText.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
-        holder.cbPublic.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
