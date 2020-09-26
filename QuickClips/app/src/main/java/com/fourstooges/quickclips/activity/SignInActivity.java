@@ -146,9 +146,9 @@ public class SignInActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(SignInActivity.this, "We sent an email to " + email, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignInActivity.this, "We sent an email to " + email, Toast.LENGTH_LONG).show();
                     } else {
-                        Toast.makeText(SignInActivity.this, "Failed to send email", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignInActivity.this, "Failed to send email", Toast.LENGTH_LONG).show();
                     }
                 }
             });
