@@ -12,9 +12,8 @@
 
     <ImageView
         android:id="@+id/iv_app"
-        android:layout_width="136dp"
-        android:layout_height="137dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +24,6 @@
         android:id="@+id/tv_app"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:text="@string/app_name"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,13 +46,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Username">
+            android:hint="@string/email">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:inputType="textWebEmailAddress"
                 android:singleLine="true"
                 app:layout_constraintTop_toBottomOf="@+id/tv_app" />
         </com.google.android.material.textfield.TextInputLayout>
