@@ -1,5 +1,6 @@
 package com.fourstooges.quickclips.database;
 
+import java.io.FileOutputStream;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,15 +33,25 @@ public class ClipItems {
         private String category;
         private String text;
         private String id;
+        private boolean isPublic;
 
-        public ClipItem(String title, String category, String text) {
+        public ClipItem(String title, String category, String text, boolean isPublic) {
             this.title = title;
             this.category = category;
             this.text = text;
+            this.isPublic = isPublic;
         }
 
         public ClipItem() {
 
+        }
+
+        public boolean isPublic() {
+            return isPublic;
+        }
+
+        public void setPublic(boolean isPublic) {
+            this.isPublic = isPublic;
         }
 
         public String getTitle() {
