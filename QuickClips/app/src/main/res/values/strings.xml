@@ -20,4 +20,8 @@
     <string name="cancel">Cancel</string>
     <string name="sign_out">Sign Out</string>
     <string name="about">About</string>
+
+    <string name="sample_title">Sample Title</string>
+    <string name="sample_text">Body Text</string>
+    <string name="is_public">Public</string>
 </resources>
