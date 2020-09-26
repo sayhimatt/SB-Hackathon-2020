@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class ClipEditActivity extends AppCompatActivity {
     private ClipItems.ClipItem clipItem;
     private EditText tfTitle, tfBody;
+    private CheckBox cbPublic;
     private FirebaseAuth mAuth;
 
     @Override
@@ -32,6 +34,8 @@ public class ClipEditActivity extends AppCompatActivity {
         tfTitle.setText(clipItem.getTitle());
         tfBody = findViewById(R.id.body_ei);
         tfBody.setText(clipItem.getText());
+        cbPublic = findViewById(R.id.check_box_public);
+        cbPublic.setEnabled(clipItem.isPublic());
         mAuth = FirebaseAuth.getInstance();
     }
 
@@ -45,9 +49,10 @@ public class ClipEditActivity extends AppCompatActivity {
     public void save(MenuItem item) {
         String title = tfTitle.getText().toString();
         String text = tfBody.getText().toString();
-
+        boolean isPublic = cbPublic.isEnabled();
         clipItem.setTitle(title);
         clipItem.setText(text);
+        clipItem.setPublic(isPublic);
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         ref = ref.child("Users").child(mAuth.getCurrentUser().getUid()).child("quickclips");
