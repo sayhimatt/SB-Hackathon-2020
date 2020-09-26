@@ -47,7 +47,7 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.title_tv.setText(mValues.get(position).getTitle());
         holder.main_tv.setText(mValues.get(position).getText());
-
+        System.out.println("id=" + mValues.get(position).getId());
         // Apply Animations
         holder.modify_b.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
         holder.copy_b.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
