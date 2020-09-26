@@ -98,6 +98,7 @@
           android:layout_height="wrap_content"
           android:inputType="textPassword"
           android:background="@drawable/rectangle_field"
+          android:enabled="false"
           android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -107,6 +108,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:enabled="false"
         android:onClick="signUp"
         android:text="@string/sign_up" />
     <!--        android:onClick="sign_up"-->
