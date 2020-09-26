@@ -50,15 +50,19 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.guidi:
                 intent.setData(Uri.parse("https://github.com/sayhimatt"));
+                startActivity(intent);
                 return true;
             case R.id.campos:
                 intent.setData(Uri.parse("https://github.com/Camposm97"));
+                startActivity(intent);
                 return true;
             case R.id.kleister:
                 intent.setData(Uri.parse("https://github.com/kiefuh"));
+                startActivity(intent);
                 return true;
             case R.id.salomon:
                 intent.setData(Uri.parse("https://github.com/adriana-ss"));
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
