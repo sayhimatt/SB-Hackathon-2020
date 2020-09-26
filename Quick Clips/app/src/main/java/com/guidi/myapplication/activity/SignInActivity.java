@@ -61,8 +61,8 @@ public class SignInActivity extends AppCompatActivity {
 
 
     public void sign_up(View v) {
-        Intent intent = new Intent(this, SignUpActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, SignUpActivity.class);
+//        startActivity(intent);
     }
 
     public void signInWithGoogle(View v) {
