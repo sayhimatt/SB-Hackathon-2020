@@ -14,6 +14,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.fourstooges.quickclips.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class CommFragment extends Fragment {
@@ -33,7 +35,8 @@ public class CommFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 System.out.println("Searching...");
-
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("quickclips");
+                System.out.println(ref.getKey());
             }
         });
     }
