@@ -66,6 +66,13 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
             }
         });
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(c, "View!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         holder.copy_b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
