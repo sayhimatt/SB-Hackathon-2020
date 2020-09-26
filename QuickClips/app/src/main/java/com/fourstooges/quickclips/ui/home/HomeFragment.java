@@ -46,10 +46,10 @@ public class HomeFragment extends Fragment {
         if (view.findViewById(R.id.clip_list) instanceof RecyclerView){
             Context context = view.getContext();
             ClipItems.ClipItem a = new ClipItems.ClipItem("This is a test","Research","This is helping us finish the project :3");
-            mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
+//            mValues.add(a);
+//            mValues.add(a);
+//            mValues.add(a);
+//            mValues.add(a);
 
             // AS.
             clipList = (RecyclerView) view.findViewById(R.id.clip_list);
