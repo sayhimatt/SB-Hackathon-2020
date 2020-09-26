@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton(R.string.add_clip, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                System.out.println("Adding clip");
                 String title = tfTitle.getText().toString();
                 String text = tfText.getText().toString();
                 boolean isPublic = checkBox.isActivated();
@@ -109,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addClip(String title, String text, boolean isPublic) {
+        System.out.println("Adding clip");
+        System.out.println(title + ", " + text + ", " + isPublic);
         // TODO Your Turn Matt Guidi
     }
 }
