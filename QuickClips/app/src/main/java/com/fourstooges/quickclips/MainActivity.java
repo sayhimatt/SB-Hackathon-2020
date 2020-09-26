@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(title + ", " + text + ", " + isPublic);
 
 //        ClipItems.addItem(new ClipItems.ClipItem(title,"null", text));
-        ClipItems.ClipItem c= new ClipItems.ClipItem(title, "null", text);
+        ClipItems.ClipItem c= new ClipItems.ClipItem(title, "null", text, isPublic);
         ClipItems.addItem(c); // c from line 127
         clipRecyclerView.getAdapter().notifyDataSetChanged();
         mAuth= FirebaseAuth.getInstance();
