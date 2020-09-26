@@ -33,5 +33,4 @@ public class ClipEditActivity extends AppCompatActivity {
         return true;
     }
 
-
 }
