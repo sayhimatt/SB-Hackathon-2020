@@ -83,6 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:drawableStart="@android:drawable/ic_lock_power_off"
             android:onClick="sign_in"
             android:text="@string/sign_in" />
 
@@ -92,7 +93,7 @@
         android:id="@+id/bt_login_google"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/fui_ic_googleg_color_24dp"
+        android:drawableStart="@drawable/common_google_signin_btn_icon_light"
         android:onClick="signInWithGoogle"
         android:text="@string/sign_in_google"
         app:layout_constraintBottom_toTopOf="@+id/bt_signup"
@@ -103,7 +104,7 @@
         android:id="@+id/bt_signup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/fui_ic_mail_white_24dp"
+        android:drawableStart="@drawable/ic_email"
         android:onClick="sign_up"
         android:text="@string/sign_up"
         app:layout_constraintBottom_toBottomOf="parent"
