@@ -90,8 +90,7 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
                 System.out.println(ref);
                 System.out.println(ref.getKey());
                 Task<Void> task = ref.removeValue();
-                if (task.isSuccessful())
-                    Toast.makeText(view.getContext(), "Deleted!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "Deleted!", Toast.LENGTH_SHORT).show();
                 ClipItems.removeItem(position);
                 ClipRecyclerViewAdapter.this.notifyDataSetChanged();
             }
