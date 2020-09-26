@@ -30,7 +30,7 @@ import com.guidi.myapplication.R;
 public class SignInActivity extends AppCompatActivity {
     private static final String TAG = SignInActivity.class.getSimpleName();
     private static final int RC_SIGN_IN = 9001;
-    private GoogleSignInClient gsoClient; // Adriana is taking too long
+    private GoogleSignInClient gsoClient;
     private FirebaseAuth mAuth;
 
     @Override
