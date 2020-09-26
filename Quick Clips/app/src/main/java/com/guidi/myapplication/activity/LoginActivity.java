@@ -1,14 +1,14 @@
 package com.guidi.myapplication.activity;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.guidi.myapplication.R;
@@ -36,11 +36,11 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void loginGoogle(View v) {
+    public void loginWithGoogle(View v) {
 
     }
 
-    public void signup(View v) {
+    public void sign_up(View v) {
         Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
     }
