@@ -83,12 +83,17 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
             }
         });
 
+        holder.delete_b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "Deleted!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         holder.copy_b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast t = Toast.makeText(view.getContext(), "Copied!", Toast.LENGTH_SHORT);
-                t.setGravity(Gravity.CENTER, 0, 0);
-                t.show();
+                Toast.makeText(view.getContext(), "Copied!", Toast.LENGTH_SHORT).show();
                 String text = holder.main_tv.getText().toString();
                 ClipboardManager clipboard = (ClipboardManager) c.getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("", text);
@@ -115,15 +120,16 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-//        public ClipItems.ClipItem cItem;
+        //        public ClipItems.ClipItem cItem;
 //        public Button modify_b;
-        public ImageButton copy_b;
+        public ImageButton copy_b, delete_b;
         public TextView title_tv;
         public TextView main_tv;
 
         public ViewHolder(View view) {
             super(view);
 //            modify_b= view.findViewById(R.id.modify_b);
+            delete_b = view.findViewById(R.id.bt_delete);
             copy_b = view.findViewById(R.id.bt_copy);
             title_tv = view.findViewById(R.id.title_tv);
             main_tv = view.findViewById(R.id.mText_tv);
