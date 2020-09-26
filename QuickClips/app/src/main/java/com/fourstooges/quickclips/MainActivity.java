@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
         clipRecyclerView.getAdapter().notifyDataSetChanged();
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID).child("quickclips");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID);
         System.out.println("refKey=" + ref.getKey());
         String id = ref.push().getKey();
         System.out.println("id=" + id);

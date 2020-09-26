@@ -55,7 +55,7 @@ public class ClipEditActivity extends AppCompatActivity {
         clipItem.setPublic(isPublic);
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        ref = ref.child("Users").child(mAuth.getCurrentUser().getUid()).child("quickclips");
+        ref = ref.child("Users").child(mAuth.getCurrentUser().getUid());
         Task<Void> task = ref.child(clipItem.getId()).setValue(clipItem);
         Toast.makeText(this, "Saved!", Toast.LENGTH_SHORT).show();
         finish();

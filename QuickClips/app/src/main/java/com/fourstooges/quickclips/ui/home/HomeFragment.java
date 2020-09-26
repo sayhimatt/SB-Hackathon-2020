@@ -58,7 +58,7 @@ public class HomeFragment extends Fragment {
         ClipItems.clear();
         currentUserID = mAuth.getCurrentUser().getUid();
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference clipItems = database.child("Users").child(currentUserID).child("quickclips");
+        DatabaseReference clipItems = database.child("Users").child(currentUserID);
         clipItems.addListenerForSingleValueEvent(new ValueEventListener() {
             /**
              * Modifies the list based on any data changes detected in the database and updates the recycler view accordingly

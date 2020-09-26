@@ -1,6 +1,7 @@
 package com.fourstooges.quickclips.ui.comm_clips;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.fourstooges.quickclips.R;
 import com.fourstooges.quickclips.database.ClipItems;
 import com.fourstooges.quickclips.ui.home.ClipRecyclerViewAdapter;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -50,26 +52,35 @@ public class CommFragment extends Fragment {
         btSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("Searching...");
-                String key = tfKey.getText().toString();
+                clipItems.clear();
+                adapter.notifyDataSetChanged();
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
-                
-                Query q1 = FirebaseDatabase.getInstance().getReference().child("quickclips")
-                        .orderByChild("title");
+                Query q = ref.orderByKey();
 
+                q.addListenerForSingleValueEvent(new ValueEventListener() {
 
-
-                q1.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        clipItems.clear();
-                        if (snapshot.exists()) {
-                            System.out.println("Found snapshots!");
-                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                                ClipItems.ClipItem item = snapshot.getValue(ClipItems.ClipItem.class);
-                                clipItems.add(item);
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.exists()){
+
+                            for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                                int i = 0;
+                                for(DataSnapshot innerSnapShot : snapshot.getChildren()){
+                                    if((Boolean) innerSnapShot.child("public").getValue() == true) {
+                                        if (innerSnapShot.child("title").getValue().toString().toLowerCase().contains(tfKey.getText().toString().toLowerCase())) {
+                                            String title = innerSnapShot.child("title").getValue().toString();
+                                            String cat = innerSnapShot.child("category").getValue().toString();
+                                            String text = innerSnapShot.child("text").getValue().toString();
+
+
+                                            ClipItems.ClipItem c = new ClipItems.ClipItem(title,cat,text,true);
+                                            clipItems.add(c);
+                                            adapter.notifyDataSetChanged();
+                                        }
+                                    }
+                                }
+
                             }
-                            adapter.notifyDataSetChanged();
                         }
                     }
 
@@ -78,6 +89,7 @@ public class CommFragment extends Fragment {
 
                     }
                 });
+
             }
         });
     }
