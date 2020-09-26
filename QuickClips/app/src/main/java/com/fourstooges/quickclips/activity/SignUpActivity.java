@@ -63,7 +63,7 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    public void signUp() {
+    public void signUp(View v) {
         String email = ((EditText) findViewById(R.id.tf_email)).getText().toString();
         String password = ((EditText) findViewById(R.id.tf_password)).getText().toString();
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
