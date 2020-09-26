@@ -41,25 +41,6 @@ public class HomeFragment extends Fragment {
             mValues.add(a);
             mValues.add(a);
             mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
-            mValues.add(a);
 
             clipList = (RecyclerView) view.findViewById(R.id.clip_list);
             MainActivity.setClipRecyclerView(clipList);
