@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">QuickClips</string>
     <string name="title_home">Your Clips</string>
-
+    <string name="comm_s">Community Clips</string>
     <string name="test">Say Hi Matt</string>
 
     <string name="sign_in">Sign In</string>
