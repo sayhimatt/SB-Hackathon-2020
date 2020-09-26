@@ -1,4 +1,4 @@
-package com.fourstooges.quickclips.ui.notifications;
+package com.guidi.myapplication.ui.notifications;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.fourstooges.quickclips.R;
+import com.guidi.myapplication.R;
 
 public class NotificationsFragment extends Fragment {
 
