@@ -73,7 +73,7 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
             }
         });
 
-        holder.copy_b.setOnClickListener(new View.OnClickListener() {
+        holder.modify_b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
