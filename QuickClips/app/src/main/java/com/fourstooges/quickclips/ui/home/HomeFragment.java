@@ -1,4 +1,4 @@
-package com.guidi.myapplication.ui.home;
+package com.fourstooges.quickclips.ui.home;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
