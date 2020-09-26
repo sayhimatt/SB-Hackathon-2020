@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 import com.fourstooges.quickclips.R;
 import com.fourstooges.quickclips.database.ClipItems;
@@ -19,6 +20,10 @@ public class ClipEditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_clip_edit);
         clipItem = (ClipItems.ClipItem) getIntent().getSerializableExtra("clip_item");
         System.out.println(clipItem.getId());
+        EditText title=findViewById(R.id.title_ei);
+        title.setText(clipItem.getTitle());
+        EditText body=findViewById(R.id.body_ei);
+        body.setText(clipItem.getText());
     }
 
     @Override
@@ -28,7 +33,5 @@ public class ClipEditActivity extends AppCompatActivity {
         return true;
     }
 
-    public void itemClicked(MenuItem item){
-       
-    }
+
 }
