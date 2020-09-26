@@ -4,7 +4,7 @@
     <item
         android:id="@+id/mi_clip"
         android:title="@string/add_clip"
-        android:onClick="addClip"
+        android:onClick="showAddClipDialog"
         app:showAsAction="always" />
 
     <item android:id="@+id/contributors"
