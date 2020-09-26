@@ -42,9 +42,9 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         mAuth = FirebaseAuth.getInstance();
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        if (view.findViewById(R.id.clip_list) instanceof RecyclerView){
+        if (view.findViewById(R.id.clip_list) instanceof RecyclerView) {
             Context context = view.getContext();
-            ClipItems.ClipItem a = new ClipItems.ClipItem("This is a test","Research","This is helping us finish the project :3");
+            ClipItems.ClipItem a = new ClipItems.ClipItem("This is a test", "Research", "This is helping us finish the project :3");
 //            mValues.add(a);
 //            mValues.add(a);
 //            mValues.add(a);
@@ -55,7 +55,7 @@ public class HomeFragment extends Fragment {
             clipList = (RecyclerView) view.findViewById(R.id.clip_list);
             MainActivity.setClipRecyclerView(clipList);
             clipList.setLayoutManager(new LinearLayoutManager(context));
-            clipList.setAdapter(new ClipRecyclerViewAdapter(mValues,new HomeFragment(), view.getContext()));
+            clipList.setAdapter(new ClipRecyclerViewAdapter(mValues, new HomeFragment(), view.getContext()));
             clipList.getAdapter().notifyDataSetChanged();
         }
 
@@ -76,7 +76,8 @@ public class HomeFragment extends Fragment {
     }
 
     /**
-     *  Adds a plan to the database and list and finally updating the recycler view to visibly show the change
+     * Adds a plan to the database and list and finally updating the recycler view to visibly show the change
+     *
      * @param pi
      */
     public void addClipToList(ClipItems.ClipItem pi) {
@@ -101,7 +102,7 @@ public class HomeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot singleSnapShot : snapshot.getChildren()) {
                     ClipItems.ClipItem item = singleSnapShot.getValue(ClipItems.ClipItem.class);
-                    if(!ClipItems.ITEMS.contains(item)){
+                    if (!ClipItems.ITEMS.contains(item)) {
                         ClipItems.addItem(item);
                     }
                 }
@@ -114,6 +115,8 @@ public class HomeFragment extends Fragment {
             }
 
         });
-    };
+    }
+
+    ;
 
 }
