@@ -19,11 +19,12 @@
     <string name="add_clip">Add Clip</string>
     <string name="cancel">Cancel</string>
     <string name="sign_out">Sign Out</string>
-    <string name="about">About</string>
+    <string name="about_name">About</string>
 
     <string name="clip_title">Title</string>
     <string name="clip_text">Text</string>
     <string name="is_public">Public</string>
     <string name="edit_s">Edit</string>
     <string name="save">Save</string>
+    <string name="about">Matt Guidi writes here</string>
 </resources>
