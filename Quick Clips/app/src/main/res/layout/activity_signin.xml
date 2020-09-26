@@ -41,36 +41,66 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_app"
         app:layout_constraintVertical_bias="0.0">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tf_layout_username"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="@string/email">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_text_username"
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/fui_ic_mail_white_24dp"
+                app:srcCompat="@drawable/ic_email" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tf_layout_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:inputType="textWebEmailAddress"
-                android:singleLine="true"
-                app:layout_constraintTop_toBottomOf="@+id/tv_app" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:hint="@string/email">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tf_layout_password"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:inputType="textWebEmailAddress"
+                    android:singleLine="true"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_app" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_text_password"
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_lock" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tf_layout_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:password="true"
-                android:singleLine="true" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_weight="1"
+                android:hint="Password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:password="true"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -78,15 +108,18 @@
         android:id="@+id/bt_login_google"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableStart="@drawable/fui_ic_googleg_color_24dp"
         android:onClick="signInWithGoogle"
         android:text="@string/sign_in_google"
         app:layout_constraintBottom_toTopOf="@+id/bt_signup"
-        tools:layout_editor_absoluteX="20dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/bt_signup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:drawableStart="@drawable/fui_ic_mail_white_24dp"
         android:onClick="sign_up"
         android:text="@string/sign_up"
         app:layout_constraintBottom_toBottomOf="parent"
