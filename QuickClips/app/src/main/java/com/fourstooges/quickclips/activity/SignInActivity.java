@@ -3,7 +3,6 @@ package com.fourstooges.quickclips.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -33,7 +32,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.guidi.myapplication.R;
 
 public class SignInActivity extends AppCompatActivity {
-    private static final String TAG = SignInActivity.class.getSimpleName();
     private static final int RC_SIGN_IN = 9001;
     private GoogleSignInClient gsoClient;
     private FirebaseAuth mAuth;
