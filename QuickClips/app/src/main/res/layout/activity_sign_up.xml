@@ -17,6 +17,7 @@
       android:layout_height="100dp"
       android:contentDescription="@string/app_name"
       android:src="@mipmap/ic_launcher"
+      android:layout_marginTop="50dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.498"
       app:layout_constraintStart_toStartOf="parent"
@@ -109,6 +110,17 @@
     <!--        android:onClick="sign_up"-->
 
   </LinearLayout>
+
+  <Button
+      android:id="@+id/bt_login_google"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:drawableStart="@drawable/common_google_signin_btn_icon_light"
+      android:onClick="signUpWithGoogle"
+      android:text="Sign up with google"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
 
   
   </androidx.constraintlayout.widget.ConstraintLayout>
