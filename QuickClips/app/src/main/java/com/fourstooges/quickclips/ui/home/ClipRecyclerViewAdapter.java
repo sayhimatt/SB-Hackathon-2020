@@ -57,6 +57,19 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
             }
         });
 
+        holder.copy_b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast t = Toast.makeText(view.getContext(), "Copied!", Toast.LENGTH_SHORT);
+                t.setGravity(Gravity.CENTER,0,0);
+                t.show();
+                String text = "Matt Says Hi!";
+                ClipboardManager clipboard = (ClipboardManager) c.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("", text);
+                clipboard.setPrimaryClip(clip);
+            }
+        });
+
     }
 
 
