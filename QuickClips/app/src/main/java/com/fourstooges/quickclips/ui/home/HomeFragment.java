@@ -51,7 +51,7 @@ public class HomeFragment extends Fragment {
 //            mValues.add(a);
 
             // AS.
-//            retrievePlannerItems();
+//            retrieveClipItems();
             clipList = (RecyclerView) view.findViewById(R.id.clip_list);
             MainActivity.setClipRecyclerView(clipList);
             clipList.setLayoutManager(new LinearLayoutManager(context));
