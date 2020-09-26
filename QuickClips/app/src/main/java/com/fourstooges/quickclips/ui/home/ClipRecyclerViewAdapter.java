@@ -14,7 +14,6 @@ import com.fourstooges.quickclips.R;
 import com.fourstooges.quickclips.database.ClipItems;
 import com.google.firebase.auth.FirebaseAuth;
 
-
 import java.util.List;
 
 public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerViewAdapter.ViewHolder>{
@@ -38,7 +37,6 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-
 
     }
 
