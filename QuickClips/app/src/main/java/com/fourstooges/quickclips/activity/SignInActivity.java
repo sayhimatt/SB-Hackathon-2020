@@ -81,7 +81,7 @@ public class SignInActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(SignInActivity.this, "Successfully Signed-In", Toast.LENGTH_LONG).show();
+                        Toast.makeText(SignInActivity.this, "Welcome!", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(SignInActivity.this, MainActivity.class);
                         String currentUserID = mAuth.getCurrentUser().getUid();
                         intent.putExtra("userID", currentUserID);
@@ -144,17 +144,21 @@ public class SignInActivity extends AppCompatActivity {
 
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(SignInActivity.this, "Welcome!", Toast.LENGTH_SHORT).show();
-                            FirebaseUser user = mAuth.getCurrentUser();
-                        } else { // Failed to login
-                            Toast.makeText(getBaseContext(), "Login Failed!", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+        mAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(SignInActivity.this, "Welcome!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+                    String currentUserID = mAuth.getCurrentUser().getUid();
+                    intent.putExtra("userID", currentUserID);
+                    setResult(RESULT_OK, intent);
+                    startActivity(intent);
+                    finish();
+                } else { // Failed to login
+                    Toast.makeText(getBaseContext(), "Login Failed!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
