@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,6 +51,7 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.tvTitle.setText(mValues.get(position).getTitle());
         holder.tvText.setText(mValues.get(position).getText());
+        holder.cbPublic.setChecked(mValues.get(position).isPublic());
         System.out.println("id=" + mValues.get(position).getId());
         // Apply Animations
 //        holder.modify_b.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
@@ -131,6 +133,7 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
         public ImageButton btCopy, btDelete;
         public TextView tvTitle;
         public TextView tvText;
+        public CheckBox cbPublic;
 
         public ViewHolder(View view) {
             super(view);
@@ -139,6 +142,7 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
             btCopy = view.findViewById(R.id.bt_copy);
             tvTitle = view.findViewById(R.id.title_tv);
             tvText = view.findViewById(R.id.mText_tv);
+            cbPublic = view.findViewById(R.id.cb_public);
         }
 
         /**
