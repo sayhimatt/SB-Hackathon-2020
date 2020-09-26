@@ -16,4 +16,7 @@
     <string name="sample_text_s">Sample Text</string>
     <string name="modify">Modify</string>
     <string name="copy_bs">Copy</string>
+    <string name="add_clip">Add Clip</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="about">About</string>
 </resources>
