@@ -16,21 +16,12 @@ import com.fourstooges.quickclips.R;
 
 
 public class CommFragment extends Fragment {
-
-    private CommViewModel dashboardViewModel;
+    private View root;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(CommViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_comm, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        root = inflater.inflate(R.layout.fragment_comm, container, false);
+
         return root;
     }
 }
