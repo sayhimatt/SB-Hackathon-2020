@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(R.string.app_name);
                 builder.setMessage(R.string.about);
+                builder.setIcon(R.mipmap.ic_launcher);
+                builder.setPositiveButton("OK", null);
                 builder.show();
                 return true;
             case R.id.guidi:
