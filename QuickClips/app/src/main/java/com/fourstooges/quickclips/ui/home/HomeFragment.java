@@ -33,8 +33,8 @@ import java.util.List;
 
 
 public class HomeFragment extends Fragment {
-    private static RecyclerView clipList;
-    private static List<ClipItems.ClipItem> mValues = ClipItems.ITEMS;
+    private RecyclerView clipList;
+    private List<ClipItems.ClipItem> mValues = ClipItems.ITEMS;
     private FirebaseAuth mAuth;
     private String currentUserID;
 
