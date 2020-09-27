@@ -59,6 +59,15 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
             holder.btCopy.setVisibility(View.INVISIBLE);
             holder.cbPublic.setVisibility(View.INVISIBLE);
         } else {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ClipItems.ClipItem item = mValues.get(position);
+                    Intent i = new Intent(c, ClipEditActivity.class);
+                    i.putExtra("clip_item", item);
+                    c.startActivity(i);
+                }
+            });
             holder.btDelete.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
             holder.btCopy.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
             holder.cbPublic.setAnimation(AnimationUtils.loadAnimation(c, R.anim.anim_fade_trans_1));
@@ -81,16 +90,6 @@ public class ClipRecyclerViewAdapter extends RecyclerView.Adapter<ClipRecyclerVi
                 ClipboardManager clipboard = (ClipboardManager) c.getSystemService(Context.CLIPBOARD_SERVICE);
                 clipboard.setPrimaryClip(ClipData.newPlainText("", text));
                 return true;
-            }
-        });
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ClipItems.ClipItem item = mValues.get(position);
-                Intent i = new Intent(c, ClipEditActivity.class);
-                i.putExtra("clip_item", item);
-                c.startActivity(i);
             }
         });
 
